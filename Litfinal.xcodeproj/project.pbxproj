@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		A4D98DEF1AAC0B19004B2272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */; };
-		A4D98DF11AAC0B19004B2272 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98DF01AAC0B19004B2272 /* ViewController.swift */; };
 		A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF21AAC0B19004B2272 /* Main.storyboard */; };
 		A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF51AAC0B19004B2272 /* Images.xcassets */; };
 		A4D98DF91AAC0B19004B2272 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF71AAC0B19004B2272 /* LaunchScreen.xib */; };
 		A4D98E051AAC0B19004B2272 /* LitfinalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98E041AAC0B19004B2272 /* LitfinalTests.swift */; };
+		A4D98E121AAC0BA9004B2272 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D98E0F1AAC0BA9004B2272 /* TwitterKit.framework */; };
+		A4D98E131AAC0BA9004B2272 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4D98E101AAC0BA9004B2272 /* TwitterKitResources.bundle */; };
+		A4D98E141AAC0BA9004B2272 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D98E111AAC0BA9004B2272 /* Fabric.framework */; };
+		A4D98E161AAC0D41004B2272 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98E151AAC0D41004B2272 /* LoginViewController.swift */; };
+		A4D98E181AAC0FBC004B2272 /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98E171AAC0FBC004B2272 /* TwitterAPI.swift */; };
+		A4F3491B1AAC292300AE68C5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3491A1AAC292300AE68C5 /* TimelineViewController.swift */; };
+		A4F3491D1AAC2A8400AE68C5 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3491C1AAC2A8400AE68C5 /* SendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +35,19 @@
 		A4D98DE91AAC0B19004B2272 /* Litfinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Litfinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D98DED1AAC0B19004B2272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A4D98DF01AAC0B19004B2272 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A4D98DF31AAC0B19004B2272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4D98DF51AAC0B19004B2272 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4D98DF81AAC0B19004B2272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A4D98DFE1AAC0B19004B2272 /* LitfinalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LitfinalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D98E031AAC0B19004B2272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D98E041AAC0B19004B2272 /* LitfinalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitfinalTests.swift; sourceTree = "<group>"; };
+		A4D98E0F1AAC0BA9004B2272 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		A4D98E101AAC0BA9004B2272 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		A4D98E111AAC0BA9004B2272 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		A4D98E151AAC0D41004B2272 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A4D98E171AAC0FBC004B2272 /* TwitterAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterAPI.swift; path = ../TwitterAPI.swift; sourceTree = "<group>"; };
+		A4F3491A1AAC292300AE68C5 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		A4F3491C1AAC2A8400AE68C5 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D98E121AAC0BA9004B2272 /* TwitterKit.framework in Frameworks */,
+				A4D98E141AAC0BA9004B2272 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,9 +91,15 @@
 		A4D98DEB1AAC0B19004B2272 /* Litfinal */ = {
 			isa = PBXGroup;
 			children = (
+				A4F3491C1AAC2A8400AE68C5 /* SendViewController.swift */,
+				A4F3491A1AAC292300AE68C5 /* TimelineViewController.swift */,
+				A4D98E171AAC0FBC004B2272 /* TwitterAPI.swift */,
 				A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */,
-				A4D98DF01AAC0B19004B2272 /* ViewController.swift */,
+				A4D98E151AAC0D41004B2272 /* LoginViewController.swift */,
 				A4D98DF21AAC0B19004B2272 /* Main.storyboard */,
+				A4D98E0F1AAC0BA9004B2272 /* TwitterKit.framework */,
+				A4D98E101AAC0BA9004B2272 /* TwitterKitResources.bundle */,
+				A4D98E111AAC0BA9004B2272 /* Fabric.framework */,
 				A4D98DF51AAC0B19004B2272 /* Images.xcassets */,
 				A4D98DF71AAC0B19004B2272 /* LaunchScreen.xib */,
 				A4D98DEC1AAC0B19004B2272 /* Supporting Files */,
@@ -122,6 +142,7 @@
 				A4D98DE51AAC0B19004B2272 /* Sources */,
 				A4D98DE61AAC0B19004B2272 /* Frameworks */,
 				A4D98DE71AAC0B19004B2272 /* Resources */,
+				A4D98E0E1AAC0B85004B2272 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D98E131AAC0BA9004B2272 /* TwitterKitResources.bundle in Resources */,
 				A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */,
 				A4D98DF91AAC0B19004B2272 /* LaunchScreen.xib in Resources */,
 				A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */,
@@ -207,12 +229,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A4D98E0E1AAC0B85004B2272 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 10c0f19a96f2cd1cbab670c8f5215271c0cce3e3 2e7aa681d8c1a2794eea542be198a98bc2270ef510236b986bd0fa206c93ec6f";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4D98DE51AAC0B19004B2272 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4D98DF11AAC0B19004B2272 /* ViewController.swift in Sources */,
+				A4D98E181AAC0FBC004B2272 /* TwitterAPI.swift in Sources */,
+				A4F3491B1AAC292300AE68C5 /* TimelineViewController.swift in Sources */,
+				A4D98E161AAC0D41004B2272 /* LoginViewController.swift in Sources */,
+				A4F3491D1AAC2A8400AE68C5 /* SendViewController.swift in Sources */,
 				A4D98DEF1AAC0B19004B2272 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +379,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Litfinal",
+				);
 				INFOPLIST_FILE = Litfinal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -348,6 +393,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Litfinal",
+				);
 				INFOPLIST_FILE = Litfinal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -407,6 +456,7 @@
 				A4D98E0A1AAC0B19004B2272 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4D98E0B1AAC0B19004B2272 /* Build configuration list for PBXNativeTarget "LitfinalTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +465,7 @@
 				A4D98E0D1AAC0B19004B2272 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
