@@ -48,7 +48,7 @@ class TwitterAPI {
         
         var params = Dictionary<String, String>()
         println(searchword)
-        params = ["q": "time", "count":"20"]
+        params = ["q": searchword, "count":"20"]
         
         
         let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: endpoint, parameters: params, error: &clientError)
@@ -62,8 +62,11 @@ class TwitterAPI {
                     let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,
                         options: nil,
                         error: &jsonError)
-                    if let jsonArray = json as? NSArray {
-                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray) as [TWTRTweet])
+                    if let jsonArray = json as? NSDictionary {
+                        var list: [TWTRTweet] = []
+                        if let statuses = jsonArray["statuses"] as? NSArray {
+                            tweets(TWTRTweet.tweetsWithJSONArray(statuses) as [TWTRTweet])
+                        }
                     }
                 } else {
                     error(err)

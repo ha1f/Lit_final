@@ -79,8 +79,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         count = 0
         
         
-        loadTweets()
-        //searchTweets("test")
+        //loadTweets()
+        searchTweets("#NextVanguard")
         //loadTweetsWithid(["20", "510908133917487104"])
     }
     // タップイベント.
