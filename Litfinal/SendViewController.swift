@@ -18,13 +18,13 @@ class SendViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.cyanColor()
+        self.view.backgroundColor = UIColor.blueColor()
         
         //送信ボタン
-        sendButton.frame = CGRectMake(0,0,50,50)
-        sendButton.backgroundColor = UIColor.redColor()
+        sendButton.frame = CGRectMake(0,0,100,50)
+        //sendButton.backgroundColor = UIColor.orangeColor()
         sendButton.layer.masksToBounds = true
-        sendButton.setTitle("送", forState: UIControlState.Normal)
+        sendButton.setTitle("送信", forState: UIControlState.Normal)
         sendButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         sendButton.setTitle("了", forState: UIControlState.Highlighted)
         sendButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Highlighted)
@@ -36,7 +36,7 @@ class SendViewController: UIViewController, UITextFieldDelegate {
         
         //戻るボタン
         backButton.frame = CGRectMake(0,0,50,50)
-        backButton.backgroundColor = UIColor.redColor()
+        //backButton.backgroundColor = UIColor.redColor()
         backButton.layer.masksToBounds = true
         backButton.setTitle("戻", forState: UIControlState.Normal)
         backButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

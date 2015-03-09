@@ -16,6 +16,7 @@ class TwitterAPI {
     init() {
         
     }
+
     class func postTweet(tweetText: String,error: (NSError) -> ()) {
         let api = TwitterAPI()
         var clientError: NSError?
@@ -34,6 +35,39 @@ class TwitterAPI {
                     println("post succeeded")
                 } else {
                     error(err)
+                }
+            })
+        }
+    }
+    
+    class func getSearch(tweets: [TWTRTweet]->(),searchword: String ,error: (NSError) -> ()) {
+        let api = TwitterAPI()
+        var clientError: NSError?
+        let path = "/search/tweets.json"
+        let endpoint = api.baseURL + api.version + path
+        
+        var params = Dictionary<String, String>()
+        println(searchword)
+        params = ["q": "time", "count":"20"]
+        
+        
+        let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: endpoint, parameters: params, error: &clientError)
+        
+        if request != nil {
+            Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
+                response, data, err in
+                if err == nil {
+                    println("succeeded")
+                    var jsonError: NSError?
+                    let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,
+                        options: nil,
+                        error: &jsonError)
+                    if let jsonArray = json as? NSArray {
+                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray) as [TWTRTweet])
+                    }
+                } else {
+                    error(err)
+                    println("error")
                 }
             })
         }
@@ -63,6 +97,7 @@ class TwitterAPI {
             })
         }
     }
+    
     class func gettweetwithid(tweets: [TWTRTweet]->(), tweetIDs: NSArray,error: (NSError) -> ()) {
         Twitter.sharedInstance().APIClient
             .loadTweetsWithIDs(tweetIDs) {
@@ -74,7 +109,6 @@ class TwitterAPI {
                     println("Failed to load tweets: \(error.localizedDescription)")
                 }
         }
-            
     }
     
 }
