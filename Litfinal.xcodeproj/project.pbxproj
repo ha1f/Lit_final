@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40BA3A31AB1ECCE00C092EA /* OriginalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */; };
+		A40BA3A51AB1FDC900C092EA /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */; };
+		A40BA3B31AB20E6100C092EA /* くじけない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3A71AB20E6100C092EA /* くじけない.jpg */; };
+		A40BA3B41AB20E6100C092EA /* とてもつらい.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3A81AB20E6100C092EA /* とてもつらい.jpg */; };
+		A40BA3B51AB20E6100C092EA /* むりです.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3A91AB20E6100C092EA /* むりです.PNG */; };
+		A40BA3B61AB20E6100C092EA /* ん！？.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AA1AB20E6100C092EA /* ん！？.jpg */; };
+		A40BA3B71AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AB1AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg */; };
+		A40BA3B81AB20E6100C092EA /* ラーメン.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AC1AB20E6100C092EA /* ラーメン.jpg */; };
+		A40BA3B91AB20E6100C092EA /* 一人で寝るのさみしい.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AD1AB20E6100C092EA /* 一人で寝るのさみしい.jpg */; };
+		A40BA3BA1AB20E6100C092EA /* 僕は悪くない.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AE1AB20E6100C092EA /* 僕は悪くない.JPG */; };
+		A40BA3BB1AB20E6100C092EA /* 受験番号ない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AF1AB20E6100C092EA /* 受験番号ない.jpg */; };
+		A40BA3BC1AB20E6100C092EA /* 次はオマエだ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */; };
+		A40BA3BD1AB20E6100C092EA /* 起きた.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B11AB20E6100C092EA /* 起きた.JPG */; };
+		A40BA3BE1AB20E6100C092EA /* 進捗.png in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B21AB20E6100C092EA /* 進捗.png */; };
 		A4D98DEF1AAC0B19004B2272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */; };
 		A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF21AAC0B19004B2272 /* Main.storyboard */; };
 		A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF51AAC0B19004B2272 /* Images.xcassets */; };
@@ -17,6 +31,8 @@
 		A4D98E141AAC0BA9004B2272 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D98E111AAC0BA9004B2272 /* Fabric.framework */; };
 		A4D98E161AAC0D41004B2272 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98E151AAC0D41004B2272 /* LoginViewController.swift */; };
 		A4D98E181AAC0FBC004B2272 /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98E171AAC0FBC004B2272 /* TwitterAPI.swift */; };
+		A4F08F941AB05DC4002FBE98 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F08F931AB05DC4002FBE98 /* GameViewController.swift */; };
+		A4F08F961AB060E7002FBE98 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F08F951AB060E7002FBE98 /* GameScene.swift */; };
 		A4F3491B1AAC292300AE68C5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3491A1AAC292300AE68C5 /* TimelineViewController.swift */; };
 		A4F3491D1AAC2A8400AE68C5 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3491C1AAC2A8400AE68C5 /* SendViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +48,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginalCell.swift; sourceTree = "<group>"; };
+		A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
+		A40BA3A71AB20E6100C092EA /* くじけない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "くじけない.jpg"; sourceTree = "<group>"; };
+		A40BA3A81AB20E6100C092EA /* とてもつらい.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "とてもつらい.jpg"; sourceTree = "<group>"; };
+		A40BA3A91AB20E6100C092EA /* むりです.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "むりです.PNG"; sourceTree = "<group>"; };
+		A40BA3AA1AB20E6100C092EA /* ん！？.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ん！？.jpg"; sourceTree = "<group>"; };
+		A40BA3AB1AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "クソムシゴミクズこんにちは.jpg"; sourceTree = "<group>"; };
+		A40BA3AC1AB20E6100C092EA /* ラーメン.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ラーメン.jpg"; sourceTree = "<group>"; };
+		A40BA3AD1AB20E6100C092EA /* 一人で寝るのさみしい.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "一人で寝るのさみしい.jpg"; sourceTree = "<group>"; };
+		A40BA3AE1AB20E6100C092EA /* 僕は悪くない.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "僕は悪くない.JPG"; sourceTree = "<group>"; };
+		A40BA3AF1AB20E6100C092EA /* 受験番号ない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "受験番号ない.jpg"; sourceTree = "<group>"; };
+		A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "次はオマエだ.jpg"; sourceTree = "<group>"; };
+		A40BA3B11AB20E6100C092EA /* 起きた.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "起きた.JPG"; sourceTree = "<group>"; };
+		A40BA3B21AB20E6100C092EA /* 進捗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "進捗.png"; sourceTree = "<group>"; };
 		A4D98DE91AAC0B19004B2272 /* Litfinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Litfinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D98DED1AAC0B19004B2272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +76,8 @@
 		A4D98E111AAC0BA9004B2272 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		A4D98E151AAC0D41004B2272 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A4D98E171AAC0FBC004B2272 /* TwitterAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterAPI.swift; path = ../TwitterAPI.swift; sourceTree = "<group>"; };
+		A4F08F931AB05DC4002FBE98 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A4F08F951AB060E7002FBE98 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		A4F3491A1AAC292300AE68C5 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		A4F3491C1AAC2A8400AE68C5 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +102,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A40BA3A61AB20E6100C092EA /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				A40BA3A71AB20E6100C092EA /* くじけない.jpg */,
+				A40BA3A81AB20E6100C092EA /* とてもつらい.jpg */,
+				A40BA3A91AB20E6100C092EA /* むりです.PNG */,
+				A40BA3AA1AB20E6100C092EA /* ん！？.jpg */,
+				A40BA3AB1AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg */,
+				A40BA3AC1AB20E6100C092EA /* ラーメン.jpg */,
+				A40BA3AD1AB20E6100C092EA /* 一人で寝るのさみしい.jpg */,
+				A40BA3AE1AB20E6100C092EA /* 僕は悪くない.JPG */,
+				A40BA3AF1AB20E6100C092EA /* 受験番号ない.jpg */,
+				A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */,
+				A40BA3B11AB20E6100C092EA /* 起きた.JPG */,
+				A40BA3B21AB20E6100C092EA /* 進捗.png */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		A4D98DE01AAC0B19004B2272 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +142,11 @@
 		A4D98DEB1AAC0B19004B2272 /* Litfinal */ = {
 			isa = PBXGroup;
 			children = (
+				A40BA3A61AB20E6100C092EA /* Media */,
+				A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */,
+				A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */,
+				A4F08F951AB060E7002FBE98 /* GameScene.swift */,
+				A4F08F931AB05DC4002FBE98 /* GameViewController.swift */,
 				A4F3491C1AAC2A8400AE68C5 /* SendViewController.swift */,
 				A4F3491A1AAC292300AE68C5 /* TimelineViewController.swift */,
 				A4D98E171AAC0FBC004B2272 /* TwitterAPI.swift */,
@@ -213,10 +269,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A40BA3B81AB20E6100C092EA /* ラーメン.jpg in Resources */,
+				A40BA3B51AB20E6100C092EA /* むりです.PNG in Resources */,
+				A40BA3BE1AB20E6100C092EA /* 進捗.png in Resources */,
+				A40BA3B71AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg in Resources */,
+				A40BA3B61AB20E6100C092EA /* ん！？.jpg in Resources */,
+				A40BA3BA1AB20E6100C092EA /* 僕は悪くない.JPG in Resources */,
 				A4D98E131AAC0BA9004B2272 /* TwitterKitResources.bundle in Resources */,
+				A40BA3BD1AB20E6100C092EA /* 起きた.JPG in Resources */,
 				A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */,
+				A40BA3B41AB20E6100C092EA /* とてもつらい.jpg in Resources */,
+				A40BA3BC1AB20E6100C092EA /* 次はオマエだ.jpg in Resources */,
+				A40BA3BB1AB20E6100C092EA /* 受験番号ない.jpg in Resources */,
 				A4D98DF91AAC0B19004B2272 /* LaunchScreen.xib in Resources */,
 				A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */,
+				A40BA3B91AB20E6100C092EA /* 一人で寝るのさみしい.jpg in Resources */,
+				A40BA3B31AB20E6100C092EA /* くじけない.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +318,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A40BA3A51AB1FDC900C092EA /* WebPageViewController.swift in Sources */,
+				A4F08F941AB05DC4002FBE98 /* GameViewController.swift in Sources */,
 				A4D98E181AAC0FBC004B2272 /* TwitterAPI.swift in Sources */,
+				A40BA3A31AB1ECCE00C092EA /* OriginalCell.swift in Sources */,
+				A4F08F961AB060E7002FBE98 /* GameScene.swift in Sources */,
 				A4F3491B1AAC292300AE68C5 /* TimelineViewController.swift in Sources */,
 				A4D98E161AAC0D41004B2272 /* LoginViewController.swift in Sources */,
 				A4F3491D1AAC2A8400AE68C5 /* SendViewController.swift in Sources */,

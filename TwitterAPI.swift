@@ -16,17 +16,23 @@ class TwitterAPI {
     init() {
         
     }
-
-    class func postTweet(tweetText: String,error: (NSError) -> ()) {
+    
+    class func callAPI(path: String, param: Dictionary<String, String>?, type: String) -> NSURLRequest!{
         let api = TwitterAPI()
         var clientError: NSError?
-        let path = "/statuses/update.json"
         let endpoint = api.baseURL + api.version + path
         
+        return Twitter.sharedInstance().APIClient.URLRequestWithMethod(type, URL: endpoint, parameters: param, error: &clientError)
+    }
+
+    class func postTweet(tweetText: String, in_reply_to_status_id: String, error: (NSError) -> ()) {
         var param = Dictionary<String, String>()
         param["status"] = tweetText
+        if in_reply_to_status_id != ""{
+            param["in_reply_to_status_id"] = in_reply_to_status_id
+        }
         
-        let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("POST", URL: endpoint, parameters: param, error: &clientError)
+        let request = callAPI("/statuses/update.json",param:  param, type: "POST")
         
         if request != nil {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
@@ -41,17 +47,11 @@ class TwitterAPI {
     }
     
     class func getSearch(tweets: [TWTRTweet]->(),searchword: String ,error: (NSError) -> ()) {
-        let api = TwitterAPI()
-        var clientError: NSError?
-        let path = "/search/tweets.json"
-        let endpoint = api.baseURL + api.version + path
-        
-        var params = Dictionary<String, String>()
+        var param = Dictionary<String, String>()
         println(searchword)
-        params = ["q": searchword, "count":"20"]
+        param = ["q": searchword, "count":"20"]
         
-        
-        let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: endpoint, parameters: params, error: &clientError)
+        let request = callAPI("/search/tweets.json",param: param, type: "GET")
         
         if request != nil {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
@@ -77,11 +77,7 @@ class TwitterAPI {
     }
     
     class func getHomeTimeline(tweets: [TWTRTweet]->(), error: (NSError) -> ()) {
-        let api = TwitterAPI()
-        var clientError: NSError?
-        let path = "/statuses/home_timeline.json"
-        let endpoint = api.baseURL + api.version + path
-        let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: endpoint, parameters: nil, error: &clientError)
+        let request = callAPI("/statuses/home_timeline.json",param: nil, type: "GET")
         
         if request != nil {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
@@ -111,6 +107,31 @@ class TwitterAPI {
                 } else {
                     println("Failed to load tweets: \(error.localizedDescription)")
                 }
+        }
+    }
+    
+    class func getMyFavorites(tweets: [TWTRTweet]->(),error: (NSError) -> ()){
+        var param = Dictionary<String, String>()
+        param = ["count":"20"]
+        
+        
+        let request = callAPI("/favorites/list.json",param: param, type: "GET")
+        
+        if request != nil {
+            Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
+                response, data, err in
+                if err == nil {
+                    var jsonError: NSError?
+                    let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,
+                        options: nil,
+                        error: &jsonError)
+                    if let jsonArray = json as? NSArray {
+                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray) as [TWTRTweet])
+                    }
+                } else {
+                    error(err)
+                }
+            })
         }
     }
     
