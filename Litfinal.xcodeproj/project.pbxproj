@@ -9,23 +9,39 @@
 /* Begin PBXBuildFile section */
 		A40BA3A31AB1ECCE00C092EA /* OriginalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */; };
 		A40BA3A51AB1FDC900C092EA /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */; };
-		A40BA3B31AB20E6100C092EA /* くじけない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3A71AB20E6100C092EA /* くじけない.jpg */; };
-		A40BA3B41AB20E6100C092EA /* とてもつらい.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3A81AB20E6100C092EA /* とてもつらい.jpg */; };
-		A40BA3B51AB20E6100C092EA /* むりです.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3A91AB20E6100C092EA /* むりです.PNG */; };
-		A40BA3B61AB20E6100C092EA /* ん！？.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AA1AB20E6100C092EA /* ん！？.jpg */; };
-		A40BA3B71AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AB1AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg */; };
-		A40BA3B81AB20E6100C092EA /* ラーメン.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AC1AB20E6100C092EA /* ラーメン.jpg */; };
-		A40BA3B91AB20E6100C092EA /* 一人で寝るのさみしい.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AD1AB20E6100C092EA /* 一人で寝るのさみしい.jpg */; };
-		A40BA3BA1AB20E6100C092EA /* 僕は悪くない.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AE1AB20E6100C092EA /* 僕は悪くない.JPG */; };
-		A40BA3BB1AB20E6100C092EA /* 受験番号ない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3AF1AB20E6100C092EA /* 受験番号ない.jpg */; };
-		A40BA3BC1AB20E6100C092EA /* 次はオマエだ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */; };
-		A40BA3BD1AB20E6100C092EA /* 起きた.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B11AB20E6100C092EA /* 起きた.JPG */; };
-		A40BA3BE1AB20E6100C092EA /* 進捗.png in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B21AB20E6100C092EA /* 進捗.png */; };
-		A433F4531AB2B34800133014 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = A433F4521AB2B34800133014 /* black.png */; };
-		A433F4601AB2C8BA00133014 /* いいんじゃない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45C1AB2C8BA00133014 /* いいんじゃない.jpg */; };
-		A433F4611AB2C8BA00133014 /* この話はこれで終わり.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45D1AB2C8BA00133014 /* この話はこれで終わり.jpg */; };
-		A433F4621AB2C8BA00133014 /* みなかったことに.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45E1AB2C8BA00133014 /* みなかったことに.jpg */; };
-		A433F4631AB2C8BA00133014 /* もう喋るな.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45F1AB2C8BA00133014 /* もう喋るな.jpg */; };
+		A433F4BE1AB2DD3500133014 /* 00_56_cj8zf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A01AB2DD3500133014 /* 00_56_cj8zf.jpg */; };
+		A433F4BF1AB2DD3500133014 /* 3e28691a-s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A11AB2DD3500133014 /* 3e28691a-s.jpg */; };
+		A433F4C01AB2DD3500133014 /* 15d91a88.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A21AB2DD3500133014 /* 15d91a88.jpg */; };
+		A433F4C11AB2DD3500133014 /* 201201187.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A31AB2DD3500133014 /* 201201187.jpg */; };
+		A433F4C21AB2DD3500133014 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A41AB2DD3500133014 /* black.png */; };
+		A433F4C31AB2DD3500133014 /* BUBV4gLCQAAIWL8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A51AB2DD3500133014 /* BUBV4gLCQAAIWL8.jpg */; };
+		A433F4C41AB2DD3500133014 /* eventsnews102.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A61AB2DD3500133014 /* eventsnews102.jpg */; };
+		A433F4C51AB2DD3500133014 /* img_0.gif in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A71AB2DD3500133014 /* img_0.gif */; };
+		A433F4C61AB2DD3500133014 /* qaZxXLnH.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A81AB2DD3500133014 /* qaZxXLnH.jpeg */; };
+		A433F4C71AB2DD3500133014 /* samviewrs2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A91AB2DD3500133014 /* samviewrs2.jpeg */; };
+		A433F4C81AB2DD3500133014 /* sAUuztxB5RZdZIj_8DQwQ_422.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4AA1AB2DD3500133014 /* sAUuztxB5RZdZIj_8DQwQ_422.jpeg */; };
+		A433F4C91AB2DD3500133014 /* wpid-73JlIEr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4AB1AB2DD3500133014 /* wpid-73JlIEr.jpg */; };
+		A433F4CA1AB2DD3500133014 /* wpid-H00pmHd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4AC1AB2DD3500133014 /* wpid-H00pmHd.jpg */; };
+		A433F4CB1AB2DD3500133014 /* いいんじゃない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4AD1AB2DD3500133014 /* いいんじゃない.jpg */; };
+		A433F4CC1AB2DD3500133014 /* くじけない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4AE1AB2DD3500133014 /* くじけない.jpg */; };
+		A433F4CD1AB2DD3500133014 /* クソムシゴミクズこんにちは.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4AF1AB2DD3500133014 /* クソムシゴミクズこんにちは.jpg */; };
+		A433F4CE1AB2DD3500133014 /* この話はこれで終わり.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B01AB2DD3500133014 /* この話はこれで終わり.jpg */; };
+		A433F4CF1AB2DD3500133014 /* とてもつらい.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B11AB2DD3500133014 /* とてもつらい.jpg */; };
+		A433F4D01AB2DD3500133014 /* みなかったことに.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B21AB2DD3500133014 /* みなかったことに.jpg */; };
+		A433F4D11AB2DD3500133014 /* むりです.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B31AB2DD3500133014 /* むりです.PNG */; };
+		A433F4D21AB2DD3500133014 /* もう喋るな.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B41AB2DD3500133014 /* もう喋るな.jpg */; };
+		A433F4D31AB2DD3500133014 /* ラーメン.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B51AB2DD3500133014 /* ラーメン.jpg */; };
+		A433F4D41AB2DD3500133014 /* ん！？.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B61AB2DD3500133014 /* ん！？.jpg */; };
+		A433F4D51AB2DD3500133014 /* 一人で寝るのさみしい.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B71AB2DD3500133014 /* 一人で寝るのさみしい.jpg */; };
+		A433F4D61AB2DD3500133014 /* 起きた.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B81AB2DD3500133014 /* 起きた.JPG */; };
+		A433F4D71AB2DD3500133014 /* 次はオマエだ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4B91AB2DD3500133014 /* 次はオマエだ.jpg */; };
+		A433F4D81AB2DD3500133014 /* 受験番号ない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4BA1AB2DD3500133014 /* 受験番号ない.jpg */; };
+		A433F4D91AB2DD3500133014 /* 真顔.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4BB1AB2DD3500133014 /* 真顔.jpg */; };
+		A433F4DA1AB2DD3500133014 /* 進捗.png in Resources */ = {isa = PBXBuildFile; fileRef = A433F4BC1AB2DD3500133014 /* 進捗.png */; };
+		A433F4DB1AB2DD3500133014 /* 僕は悪くない.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A433F4BD1AB2DD3500133014 /* 僕は悪くない.JPG */; };
+		A433F4DD1AB2E02900133014 /* IMG_2087.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A433F4DC1AB2E02900133014 /* IMG_2087.JPG */; };
+		A447A7AF1AB2FD830015B169 /* じゃがいも.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A447A7AE1AB2FD830015B169 /* じゃがいも.jpg */; };
+		A447A7B31AB309560015B169 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = A447A7B21AB309560015B169 /* camera.png */; };
 		A4D98DEF1AAC0B19004B2272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */; };
 		A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF21AAC0B19004B2272 /* Main.storyboard */; };
 		A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF51AAC0B19004B2272 /* Images.xcassets */; };
@@ -55,23 +71,39 @@
 /* Begin PBXFileReference section */
 		A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginalCell.swift; sourceTree = "<group>"; };
 		A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
-		A40BA3A71AB20E6100C092EA /* くじけない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "くじけない.jpg"; sourceTree = "<group>"; };
-		A40BA3A81AB20E6100C092EA /* とてもつらい.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "とてもつらい.jpg"; sourceTree = "<group>"; };
-		A40BA3A91AB20E6100C092EA /* むりです.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "むりです.PNG"; sourceTree = "<group>"; };
-		A40BA3AA1AB20E6100C092EA /* ん！？.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ん！？.jpg"; sourceTree = "<group>"; };
-		A40BA3AB1AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "クソムシゴミクズこんにちは.jpg"; sourceTree = "<group>"; };
-		A40BA3AC1AB20E6100C092EA /* ラーメン.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ラーメン.jpg"; sourceTree = "<group>"; };
-		A40BA3AD1AB20E6100C092EA /* 一人で寝るのさみしい.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "一人で寝るのさみしい.jpg"; sourceTree = "<group>"; };
-		A40BA3AE1AB20E6100C092EA /* 僕は悪くない.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "僕は悪くない.JPG"; sourceTree = "<group>"; };
-		A40BA3AF1AB20E6100C092EA /* 受験番号ない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "受験番号ない.jpg"; sourceTree = "<group>"; };
-		A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "次はオマエだ.jpg"; sourceTree = "<group>"; };
-		A40BA3B11AB20E6100C092EA /* 起きた.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "起きた.JPG"; sourceTree = "<group>"; };
-		A40BA3B21AB20E6100C092EA /* 進捗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "進捗.png"; sourceTree = "<group>"; };
-		A433F4521AB2B34800133014 /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
-		A433F45C1AB2C8BA00133014 /* いいんじゃない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "いいんじゃない.jpg"; sourceTree = "<group>"; };
-		A433F45D1AB2C8BA00133014 /* この話はこれで終わり.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "この話はこれで終わり.jpg"; sourceTree = "<group>"; };
-		A433F45E1AB2C8BA00133014 /* みなかったことに.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "みなかったことに.jpg"; sourceTree = "<group>"; };
-		A433F45F1AB2C8BA00133014 /* もう喋るな.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "もう喋るな.jpg"; sourceTree = "<group>"; };
+		A433F4A01AB2DD3500133014 /* 00_56_cj8zf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 00_56_cj8zf.jpg; sourceTree = "<group>"; };
+		A433F4A11AB2DD3500133014 /* 3e28691a-s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3e28691a-s.jpg"; sourceTree = "<group>"; };
+		A433F4A21AB2DD3500133014 /* 15d91a88.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15d91a88.jpg; sourceTree = "<group>"; };
+		A433F4A31AB2DD3500133014 /* 201201187.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 201201187.jpg; sourceTree = "<group>"; };
+		A433F4A41AB2DD3500133014 /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
+		A433F4A51AB2DD3500133014 /* BUBV4gLCQAAIWL8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BUBV4gLCQAAIWL8.jpg; sourceTree = "<group>"; };
+		A433F4A61AB2DD3500133014 /* eventsnews102.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eventsnews102.jpg; sourceTree = "<group>"; };
+		A433F4A71AB2DD3500133014 /* img_0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = img_0.gif; sourceTree = "<group>"; };
+		A433F4A81AB2DD3500133014 /* qaZxXLnH.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = qaZxXLnH.jpeg; sourceTree = "<group>"; };
+		A433F4A91AB2DD3500133014 /* samviewrs2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = samviewrs2.jpeg; sourceTree = "<group>"; };
+		A433F4AA1AB2DD3500133014 /* sAUuztxB5RZdZIj_8DQwQ_422.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sAUuztxB5RZdZIj_8DQwQ_422.jpeg; sourceTree = "<group>"; };
+		A433F4AB1AB2DD3500133014 /* wpid-73JlIEr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wpid-73JlIEr.jpg"; sourceTree = "<group>"; };
+		A433F4AC1AB2DD3500133014 /* wpid-H00pmHd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wpid-H00pmHd.jpg"; sourceTree = "<group>"; };
+		A433F4AD1AB2DD3500133014 /* いいんじゃない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "いいんじゃない.jpg"; sourceTree = "<group>"; };
+		A433F4AE1AB2DD3500133014 /* くじけない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "くじけない.jpg"; sourceTree = "<group>"; };
+		A433F4AF1AB2DD3500133014 /* クソムシゴミクズこんにちは.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "クソムシゴミクズこんにちは.jpg"; sourceTree = "<group>"; };
+		A433F4B01AB2DD3500133014 /* この話はこれで終わり.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "この話はこれで終わり.jpg"; sourceTree = "<group>"; };
+		A433F4B11AB2DD3500133014 /* とてもつらい.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "とてもつらい.jpg"; sourceTree = "<group>"; };
+		A433F4B21AB2DD3500133014 /* みなかったことに.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "みなかったことに.jpg"; sourceTree = "<group>"; };
+		A433F4B31AB2DD3500133014 /* むりです.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "むりです.PNG"; sourceTree = "<group>"; };
+		A433F4B41AB2DD3500133014 /* もう喋るな.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "もう喋るな.jpg"; sourceTree = "<group>"; };
+		A433F4B51AB2DD3500133014 /* ラーメン.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ラーメン.jpg"; sourceTree = "<group>"; };
+		A433F4B61AB2DD3500133014 /* ん！？.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ん！？.jpg"; sourceTree = "<group>"; };
+		A433F4B71AB2DD3500133014 /* 一人で寝るのさみしい.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "一人で寝るのさみしい.jpg"; sourceTree = "<group>"; };
+		A433F4B81AB2DD3500133014 /* 起きた.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "起きた.JPG"; sourceTree = "<group>"; };
+		A433F4B91AB2DD3500133014 /* 次はオマエだ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "次はオマエだ.jpg"; sourceTree = "<group>"; };
+		A433F4BA1AB2DD3500133014 /* 受験番号ない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "受験番号ない.jpg"; sourceTree = "<group>"; };
+		A433F4BB1AB2DD3500133014 /* 真顔.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "真顔.jpg"; sourceTree = "<group>"; };
+		A433F4BC1AB2DD3500133014 /* 進捗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "進捗.png"; sourceTree = "<group>"; };
+		A433F4BD1AB2DD3500133014 /* 僕は悪くない.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "僕は悪くない.JPG"; sourceTree = "<group>"; };
+		A433F4DC1AB2E02900133014 /* IMG_2087.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2087.JPG; sourceTree = "<group>"; };
+		A447A7AE1AB2FD830015B169 /* じゃがいも.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "じゃがいも.jpg"; sourceTree = "<group>"; };
+		A447A7B21AB309560015B169 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		A4D98DE91AAC0B19004B2272 /* Litfinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Litfinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D98DED1AAC0B19004B2272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,23 +147,39 @@
 		A40BA3A61AB20E6100C092EA /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				A433F45C1AB2C8BA00133014 /* いいんじゃない.jpg */,
-				A433F45D1AB2C8BA00133014 /* この話はこれで終わり.jpg */,
-				A433F45E1AB2C8BA00133014 /* みなかったことに.jpg */,
-				A433F45F1AB2C8BA00133014 /* もう喋るな.jpg */,
-				A433F4521AB2B34800133014 /* black.png */,
-				A40BA3A71AB20E6100C092EA /* くじけない.jpg */,
-				A40BA3A81AB20E6100C092EA /* とてもつらい.jpg */,
-				A40BA3A91AB20E6100C092EA /* むりです.PNG */,
-				A40BA3AA1AB20E6100C092EA /* ん！？.jpg */,
-				A40BA3AB1AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg */,
-				A40BA3AC1AB20E6100C092EA /* ラーメン.jpg */,
-				A40BA3AD1AB20E6100C092EA /* 一人で寝るのさみしい.jpg */,
-				A40BA3AE1AB20E6100C092EA /* 僕は悪くない.JPG */,
-				A40BA3AF1AB20E6100C092EA /* 受験番号ない.jpg */,
-				A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */,
-				A40BA3B11AB20E6100C092EA /* 起きた.JPG */,
-				A40BA3B21AB20E6100C092EA /* 進捗.png */,
+				A447A7B21AB309560015B169 /* camera.png */,
+				A447A7AE1AB2FD830015B169 /* じゃがいも.jpg */,
+				A433F4DC1AB2E02900133014 /* IMG_2087.JPG */,
+				A433F4A01AB2DD3500133014 /* 00_56_cj8zf.jpg */,
+				A433F4A11AB2DD3500133014 /* 3e28691a-s.jpg */,
+				A433F4A21AB2DD3500133014 /* 15d91a88.jpg */,
+				A433F4A31AB2DD3500133014 /* 201201187.jpg */,
+				A433F4A41AB2DD3500133014 /* black.png */,
+				A433F4A51AB2DD3500133014 /* BUBV4gLCQAAIWL8.jpg */,
+				A433F4A61AB2DD3500133014 /* eventsnews102.jpg */,
+				A433F4A71AB2DD3500133014 /* img_0.gif */,
+				A433F4A81AB2DD3500133014 /* qaZxXLnH.jpeg */,
+				A433F4A91AB2DD3500133014 /* samviewrs2.jpeg */,
+				A433F4AA1AB2DD3500133014 /* sAUuztxB5RZdZIj_8DQwQ_422.jpeg */,
+				A433F4AB1AB2DD3500133014 /* wpid-73JlIEr.jpg */,
+				A433F4AC1AB2DD3500133014 /* wpid-H00pmHd.jpg */,
+				A433F4AD1AB2DD3500133014 /* いいんじゃない.jpg */,
+				A433F4AE1AB2DD3500133014 /* くじけない.jpg */,
+				A433F4AF1AB2DD3500133014 /* クソムシゴミクズこんにちは.jpg */,
+				A433F4B01AB2DD3500133014 /* この話はこれで終わり.jpg */,
+				A433F4B11AB2DD3500133014 /* とてもつらい.jpg */,
+				A433F4B21AB2DD3500133014 /* みなかったことに.jpg */,
+				A433F4B31AB2DD3500133014 /* むりです.PNG */,
+				A433F4B41AB2DD3500133014 /* もう喋るな.jpg */,
+				A433F4B51AB2DD3500133014 /* ラーメン.jpg */,
+				A433F4B61AB2DD3500133014 /* ん！？.jpg */,
+				A433F4B71AB2DD3500133014 /* 一人で寝るのさみしい.jpg */,
+				A433F4B81AB2DD3500133014 /* 起きた.JPG */,
+				A433F4B91AB2DD3500133014 /* 次はオマエだ.jpg */,
+				A433F4BA1AB2DD3500133014 /* 受験番号ない.jpg */,
+				A433F4BB1AB2DD3500133014 /* 真顔.jpg */,
+				A433F4BC1AB2DD3500133014 /* 進捗.png */,
+				A433F4BD1AB2DD3500133014 /* 僕は悪くない.JPG */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -284,27 +332,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A433F4531AB2B34800133014 /* black.png in Resources */,
-				A40BA3B81AB20E6100C092EA /* ラーメン.jpg in Resources */,
-				A40BA3B51AB20E6100C092EA /* むりです.PNG in Resources */,
-				A40BA3BE1AB20E6100C092EA /* 進捗.png in Resources */,
-				A40BA3B71AB20E6100C092EA /* クソムシゴミクズこんにちは.jpg in Resources */,
-				A40BA3B61AB20E6100C092EA /* ん！？.jpg in Resources */,
-				A40BA3BA1AB20E6100C092EA /* 僕は悪くない.JPG in Resources */,
+				A433F4CF1AB2DD3500133014 /* とてもつらい.jpg in Resources */,
+				A433F4C91AB2DD3500133014 /* wpid-73JlIEr.jpg in Resources */,
 				A4D98E131AAC0BA9004B2272 /* TwitterKitResources.bundle in Resources */,
-				A40BA3BD1AB20E6100C092EA /* 起きた.JPG in Resources */,
+				A433F4C01AB2DD3500133014 /* 15d91a88.jpg in Resources */,
+				A433F4C81AB2DD3500133014 /* sAUuztxB5RZdZIj_8DQwQ_422.jpeg in Resources */,
+				A433F4C21AB2DD3500133014 /* black.png in Resources */,
+				A433F4D41AB2DD3500133014 /* ん！？.jpg in Resources */,
+				A433F4C11AB2DD3500133014 /* 201201187.jpg in Resources */,
+				A433F4D91AB2DD3500133014 /* 真顔.jpg in Resources */,
+				A433F4D71AB2DD3500133014 /* 次はオマエだ.jpg in Resources */,
+				A433F4DA1AB2DD3500133014 /* 進捗.png in Resources */,
+				A433F4C71AB2DD3500133014 /* samviewrs2.jpeg in Resources */,
+				A433F4BE1AB2DD3500133014 /* 00_56_cj8zf.jpg in Resources */,
+				A433F4C51AB2DD3500133014 /* img_0.gif in Resources */,
+				A433F4CE1AB2DD3500133014 /* この話はこれで終わり.jpg in Resources */,
+				A433F4BF1AB2DD3500133014 /* 3e28691a-s.jpg in Resources */,
+				A433F4D31AB2DD3500133014 /* ラーメン.jpg in Resources */,
+				A433F4CD1AB2DD3500133014 /* クソムシゴミクズこんにちは.jpg in Resources */,
+				A433F4D61AB2DD3500133014 /* 起きた.JPG in Resources */,
+				A433F4C61AB2DD3500133014 /* qaZxXLnH.jpeg in Resources */,
+				A433F4D21AB2DD3500133014 /* もう喋るな.jpg in Resources */,
 				A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */,
-				A40BA3B41AB20E6100C092EA /* とてもつらい.jpg in Resources */,
-				A433F4621AB2C8BA00133014 /* みなかったことに.jpg in Resources */,
-				A40BA3BC1AB20E6100C092EA /* 次はオマエだ.jpg in Resources */,
-				A40BA3BB1AB20E6100C092EA /* 受験番号ない.jpg in Resources */,
+				A433F4C41AB2DD3500133014 /* eventsnews102.jpg in Resources */,
 				A4D98DF91AAC0B19004B2272 /* LaunchScreen.xib in Resources */,
+				A433F4CC1AB2DD3500133014 /* くじけない.jpg in Resources */,
+				A433F4C31AB2DD3500133014 /* BUBV4gLCQAAIWL8.jpg in Resources */,
 				A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */,
-				A40BA3B91AB20E6100C092EA /* 一人で寝るのさみしい.jpg in Resources */,
-				A40BA3B31AB20E6100C092EA /* くじけない.jpg in Resources */,
-				A433F4631AB2C8BA00133014 /* もう喋るな.jpg in Resources */,
-				A433F4611AB2C8BA00133014 /* この話はこれで終わり.jpg in Resources */,
-				A433F4601AB2C8BA00133014 /* いいんじゃない.jpg in Resources */,
+				A433F4D81AB2DD3500133014 /* 受験番号ない.jpg in Resources */,
+				A433F4CA1AB2DD3500133014 /* wpid-H00pmHd.jpg in Resources */,
+				A433F4D51AB2DD3500133014 /* 一人で寝るのさみしい.jpg in Resources */,
+				A433F4CB1AB2DD3500133014 /* いいんじゃない.jpg in Resources */,
+				A433F4D11AB2DD3500133014 /* むりです.PNG in Resources */,
+				A433F4DD1AB2E02900133014 /* IMG_2087.JPG in Resources */,
+				A433F4DB1AB2DD3500133014 /* 僕は悪くない.JPG in Resources */,
+				A447A7B31AB309560015B169 /* camera.png in Resources */,
+				A433F4D01AB2DD3500133014 /* みなかったことに.jpg in Resources */,
+				A447A7AF1AB2FD830015B169 /* じゃがいも.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

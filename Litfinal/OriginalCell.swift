@@ -52,15 +52,6 @@ class OriginalTweetTableViewCell : TWTRTweetTableViewCell {
         self.backgroundView = UIView(frame: self.bounds)
     }
     
-    /*
-    func tapped(sender: AnyObject){
-        println("tapped")
-        //var point: CGPoint = sender.locationOfTouch()
-        println(CGPoint)
-        self.delegate?.onTapRight?(self)
-    }
-    */
-    
     func onLeftSwipe() {
         // カスタムカラーをバックグラウンドに指定
         self.backgroundView?.backgroundColor = UIColor.blackColor()
@@ -73,6 +64,7 @@ class OriginalTweetTableViewCell : TWTRTweetTableViewCell {
                 println(self.contentView.frame.origin.x)
                 if self.contentView.frame.origin.x == -100 {
                     self.delegate?.onLeftSwipe?(self)
+                    self.contentView.frame.origin.x = 0
                 }
         }
     }
@@ -96,6 +88,7 @@ class OriginalTweetTableViewCell : TWTRTweetTableViewCell {
                 println(self.contentView.frame.origin.x)
                 if self.contentView.frame.origin.x == 100 {
                     self.delegate?.onRightSwipe?(self)
+                    self.contentView.frame.origin.x = 0
                 }
         }
     }

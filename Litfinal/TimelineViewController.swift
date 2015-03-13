@@ -27,7 +27,7 @@ isRetweeted
 retweetID
 */
 
-class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRecognizerDelegate, TWTRTweetViewDelegate{
+class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
     var tableView: UITableView! = UITableView()
     var tweets: [TWTRTweet] = [] {
         didSet {
@@ -42,6 +42,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
                 indicatorView.startAnimating()
             }else{
                 indicatorView.stopAnimating()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -51,14 +52,18 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
     
     var count:Int = 0
     
+    //var maxIdStr:String = ""
+    
     let myButton: UIButton! = UIButton()
-    let myTextField: UITextField! = UITextField()
+    //let myTextField: UITextField! = UITextField()
     
     var indicatorView:UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
     var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
     
     @IBOutlet weak var navtitle: UINavigationItem!
+    
+    var refreshControl:UIRefreshControl!
     
     
     override func viewWillAppear(animated: Bool) {
@@ -70,10 +75,11 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navtitle.title = app.username
         self.view.backgroundColor = UIColor.blackColor()
         
         //tableView
-        tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height-50)
+        tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height)
         tableView.backgroundColor = UIColor.darkGrayColor()
         tableView.allowsSelection = true
         tableView.delegate = self
@@ -89,44 +95,45 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
         self.view.addSubview(tableView)
         
         // サイズを設定する.
-        myButton.frame = CGRectMake(0,0,100,30)
+        myButton.frame = CGRectMake(0,0,80,30)
         //myButton.backgroundColor = UIColor.whiteColor()
         myButton.layer.masksToBounds = true
-        myButton.setTitle("送信", forState: UIControlState.Normal)
+        myButton.setTitle("Edit", forState: UIControlState.Normal)
         myButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        myButton.setTitle("済", forState: UIControlState.Highlighted)
+        myButton.setTitle("Edit", forState: UIControlState.Highlighted)
         myButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
-        myButton.layer.cornerRadius = 5.0
+        myButton.backgroundColor = UIColor.blackColor()
         myButton.layer.position = CGPoint(x: self.view.frame.width-40, y:self.view.frame.height-25)
         myButton.tag = 1
         myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(myButton)
         
         
-        //TextField
-        myTextField.frame = CGRectMake(0,0,self.view.frame.width-100,30)
-        myTextField.textColor = UIColor.whiteColor()
-        myTextField.text = ""
-        myTextField.delegate = self
-        myTextField.borderStyle = UITextBorderStyle.Line
-        myTextField.backgroundColor = UIColor.darkGrayColor()
-        myTextField.layer.position = CGPoint(x:self.view.bounds.width/2-30,y:self.view.bounds.height-25);
-        myTextField.returnKeyType = UIReturnKeyType.Done
-        self.view.addSubview(myTextField)
-        
-        
         indicatorView.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height/2)
         self.view.addSubview(indicatorView)
         
-        navtitle.title = app.username
-        
+        // 引っ張ってロードする
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull-to-Refresh")
+        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
         
         count = 0
         
     }
-    @IBAction func bu_refresh(sender: AnyObject) {
+    
+    @IBAction func bu_edit(sender: AnyObject){
+        onClickMyButton(UIButton())
+    }
+    
+    func bu_refresh(sender: AnyObject) {
         println("refresh")
-        loadTweets()
+        loadTweets(nil)
+    }
+    
+    func refresh(){
+        println("pulled!")
+        bu_refresh("")
     }
     
     func onClickMyButton(sender: UIButton){
@@ -137,27 +144,11 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
     }
     
     
-    //改行
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        myTextField.layer.position = CGPoint(x:self.view.bounds.width/2-25,y:self.view.bounds.height-25);
-        myButton.layer.position = CGPoint(x: self.view.frame.width-50, y:self.view.frame.height-25)
-        return true
-    }
-    //テキスト編集開始
-    func textFieldDidBeginEditing(textField: UITextField){
-        println("textFieldDidBeginEditing:" + textField.text)
-        myTextField.layer.position = CGPoint(x:self.view.bounds.width/2-25,y:self.view.bounds.height-265);
-        myButton.layer.position = CGPoint(x: self.view.frame.width-50, y:self.view.frame.height-265)
-    }
-    
-    
     //再配置が必要なとき再配置(向き変化時など)
     override func viewDidLayoutSubviews() {
-        myButton.layer.position = CGPoint(x: self.view.frame.width-50, y:self.view.frame.height-25)
-        tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height-50)
-        myTextField.frame = CGRectMake(0,0,self.view.frame.width-100,30)
-        myTextField.layer.position = CGPoint(x:self.view.bounds.width/2-30,y:self.view.bounds.height-25);
+        myButton.layer.position = CGPoint(x: self.view.frame.width-40, y:self.view.frame.height-25)
+        tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height)
+        indicatorView.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height/2)
     }
     
     func loadTweetsWithid(tweetIDs: NSArray) {
@@ -174,7 +165,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
         })
     }
     
-    func loadTweets() {//Get Home Timeline
+    func loadTweets(maxid: String!) {//Get Home Timeline
         self.busyflag = true
         TwitterAPI.getHomeTimeline({
             twttrs in
@@ -190,7 +181,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
                 }
             self.busyflag = false
             }
-            }, error: {
+            },maxid: maxid, error: {
                 error in
                 println(error.localizedDescription)
         })
@@ -206,7 +197,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
                 }else{
                     if self.tweets[0].tweetID < tweet.tweetID {
                         self.tweets.insert(tweet, atIndex: 0)
-                    }else if self.tweets.last?.tweetID > tweet.tweetID {
+                    }else if self.tweets.last?.tweetID > tweet.tweetID{
                         self.tweets.append(tweet)
                     }
                 }
@@ -237,7 +228,10 @@ extension TimelineViewController: OriginalTweetTableViewCellDelegate{
     
     func onLeftSwipe(cell: OriginalTweetTableViewCell) {
         let index: Int = cell.tag
-        println("onLeftSwipe")
+        println("onLeftSwipe: \(index)")
+        app.replyid = tweets[index].tweetID
+        app.replyuser = tweets[index].author.screenName
+        self.performSegueWithIdentifier("tosend",sender: nil)
     }
 }
 
@@ -246,7 +240,7 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate{
         println("Num: \(indexPath.row)")
         app.replyid = tweets[indexPath.row].tweetID
         app.replyuser = tweets[indexPath.row].author.screenName
-        println(tweets[indexPath.row].text)
+        //println(tweets[indexPath.row].text)
         
         self.performSegueWithIdentifier("tosend",sender: nil)
     }
@@ -264,6 +258,9 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate{
             cell.tag = indexPath.row
             cell.configureWithTweet(tweet)
             cell.delegate = self
+            if (tweets.count - 1) == indexPath.row && tweets.count > 15 {//一番下
+                self.loadTweets(self.tweets.last?.tweetID)
+            }
         }
         cell.tweetView.theme = TWTRTweetViewTheme.Dark
         

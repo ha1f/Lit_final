@@ -23,7 +23,7 @@ class CustomCell: UICollectionViewCell {
 
 class SendViewController: UIViewController, UITextFieldDelegate {
     
-    var images : [String] = ["black.png", "くじけない.jpg", "とてもつらい.jpg", "むりです.PNG", "ん！？.jpg", "クソムシゴミクズこんにちは.jpg", "起きた.JPG", "次はオマエだ.jpg", "ラーメン.jpg", "進捗.png", "受験番号ない.jpg", "僕は悪くない.JPG", "一人で寝るのさみしい.jpg", "いいんじゃない.jpg", "この話はこれで終わり.jpg", "みなかったことに.jpg", "もう喋るな.jpg"]
+    var images : [String] = ["camera.png", "いいんじゃない.jpg", "くじけない.jpg", "この話はこれで終わり.jpg", "とてもつらい.jpg", "起きた.JPG", "みなかったことに.jpg", "むりです.PNG", "もう喋るな.jpg", "ん！？.jpg", "クソムシゴミクズこんにちは.jpg", "ラーメン.jpg", "一人で寝るのさみしい.jpg", "僕は悪くない.JPG", "受験番号ない.jpg", "次はオマエだ.jpg", "真顔.jpg", "進捗.png", "00_56_cj8zf.jpg", "15d91a88.jpg", "201201187.jpg", "3e28691a-s.jpg", "BUBV4gLCQAAIWL8.jpg", "eventsnews102.jpg", "img_0.gif", "wpid-73JlIEr.jpg", "wpid-H00pmHd.jpg", "じゃがいも.jpg"]
     
     let sendButton: UIButton! = UIButton()
     
@@ -51,12 +51,16 @@ class SendViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(myTextField)
         
     }
+    //改行の時確定する
     func textFieldShouldReturn(textField: UITextField!) -> Bool{
         println( textField.text )
         if textField.isFirstResponder() {
             textField.resignFirstResponder()
         }
         return true
+    }
+    override func viewDidLayoutSubviews() {
+        PhotoCollection.frame = CGRectMake(15, 130, self.view.frame.width-30, self.view.frame.height-160)
     }
 
     @IBAction func onClickBackButton(sender: AnyObject) {
@@ -102,15 +106,13 @@ extension SendViewController: UICollectionViewDataSource,UICollectionViewDelegat
         }else{
             sendtweet(myTextField.text,replyid: (self.app.replyid ?? ""))
         }
-        println(mediaid ?? "nil")
 
         self.myTextField.text = ""
         if self.myTextField.isFirstResponder() {
             self.myTextField.resignFirstResponder()
         }
-        dismissViewControllerAnimated(true, completion: nil)
-        
-        
+        //dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true);
     }
     
     func collectionView(collectionView: UICollectionView!, didDeselectItemAtIndexPath indexPath: NSIndexPath!)

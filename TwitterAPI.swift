@@ -133,8 +133,15 @@ class TwitterAPI {
         }
     }
     
-    class func getHomeTimeline(tweets: [TWTRTweet]->(), error: (NSError) -> ()) {
-        let request = callAPI("/statuses/home_timeline.json",param: nil, type: "GET")
+    class func getHomeTimeline(tweets: [TWTRTweet]->(),maxid: String!, error: (NSError) -> ()) {
+        var param = Dictionary<String, String>()
+        if let tmp = maxid{
+            param = ["max_id": tmp]
+            param = ["count": "15"]
+        }
+        println("load_TL")
+        
+        let request = callAPI("/statuses/home_timeline.json",param: param, type: "GET")
         
         if request != nil {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {

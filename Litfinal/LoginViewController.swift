@@ -13,6 +13,8 @@ import TwitterKit
 class LoginViewController: UIViewController {
     
     var myButton : UIButton! = UIButton()
+    
+    @IBOutlet weak var haikei: UIImageView!
 
     
     override func viewDidLoad() {
@@ -51,7 +53,7 @@ class LoginViewController: UIViewController {
         myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(myButton)
         
-        
+        haikei.image = UIImage(named: "IMG_2087.JPG")
     }
     
     func onClickMyButton(sender: AnyObject){
