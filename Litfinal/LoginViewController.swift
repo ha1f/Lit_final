@@ -17,6 +17,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        
         var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
         // Do any additional setup after loading the view, typically from a nib.
         let logInButton = TWTRLogInButton(logInCompletion: {
@@ -36,7 +39,7 @@ class LoginViewController: UIViewController {
         
         // サイズを設定する.
         myButton.frame = CGRectMake(0,0,300,30)
-        myButton.backgroundColor = UIColor.whiteColor()
+        //myButton.backgroundColor = UIColor.whiteColor()
         myButton.layer.masksToBounds = true
         myButton.setTitle("Play with game", forState: UIControlState.Normal)
         myButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)

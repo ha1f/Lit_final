@@ -27,7 +27,7 @@ isRetweeted
 retweetID
 */
 
-class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRecognizerDelegate{
+class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRecognizerDelegate, TWTRTweetViewDelegate{
     var tableView: UITableView! = UITableView()
     var tweets: [TWTRTweet] = [] {
         didSet {
@@ -36,6 +36,16 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
             count = count + 1
         }
     }
+    var busyflag: Bool = false{
+        didSet{
+            if busyflag == true{
+                indicatorView.startAnimating()
+            }else{
+                indicatorView.stopAnimating()
+            }
+        }
+    }
+    
     //var prototypeCell: TWTRTweetTableViewCell?
     var prototypeCell: OriginalTweetTableViewCell?
     
@@ -44,9 +54,17 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
     let myButton: UIButton! = UIButton()
     let myTextField: UITextField! = UITextField()
     
+    var indicatorView:UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    
     var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
     
     @IBOutlet weak var navtitle: UINavigationItem!
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        bu_refresh("")
+    }
     
     
     override func viewDidLoad() {
@@ -56,7 +74,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
         
         //tableView
         tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height-50)
-        tableView.backgroundColor = UIColor.grayColor()
+        tableView.backgroundColor = UIColor.darkGrayColor()
         tableView.allowsSelection = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -87,6 +105,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
         
         //TextField
         myTextField.frame = CGRectMake(0,0,self.view.frame.width-100,30)
+        myTextField.textColor = UIColor.whiteColor()
         myTextField.text = ""
         myTextField.delegate = self
         myTextField.borderStyle = UITextBorderStyle.Line
@@ -96,24 +115,13 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
         self.view.addSubview(myTextField)
         
         
-        /*let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped:")
-        tapGesture.delegate = self;
-        tapGesture.numberOfTapsRequired = 1
-        self.view.addGestureRecognizer(tapGesture)*/
-        
-        /*let swipeGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "swiped:")
-        swipeGesture.delegate = self;
-        //swipeGesture.numberOfTapsRequired = 1
-        self.view.addGestureRecognizer(swipeGesture)*/
+        indicatorView.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height/2)
+        self.view.addSubview(indicatorView)
         
         navtitle.title = app.username
         
         
         count = 0
-
-        //loadTweets()
-        bu_refresh("")
-        //searchTweets("モス")
         
     }
     @IBAction func bu_refresh(sender: AnyObject) {
@@ -123,15 +131,9 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
     
     func onClickMyButton(sender: UIButton){
         println("send!")
+        self.app.replyid = nil
+        self.app.replyuser = nil
         self.performSegueWithIdentifier("tosend",sender: nil)
-        /*
-        sendtweet(myTextField.text + "\n\n#NextVanguard")
-        myTextField.text = ""
-        myTextField.resignFirstResponder()
-        
-        myTextField.layer.position = CGPoint(x:self.view.bounds.width/2-25,y:self.view.bounds.height-25);
-        myButton.layer.position = CGPoint(x: self.view.frame.width-50, y:self.view.frame.height-25)
-        */
     }
     
     
@@ -159,6 +161,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
     }
     
     func loadTweetsWithid(tweetIDs: NSArray) {
+        self.busyflag = true
         TwitterAPI.gettweetwithid({
             twttrs in
             for tweet in twttrs {
@@ -172,7 +175,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
     }
     
     func loadTweets() {//Get Home Timeline
-        println("load")
+        self.busyflag = true
         TwitterAPI.getHomeTimeline({
             twttrs in
             for tweet in reverse(twttrs) {
@@ -185,6 +188,7 @@ class TimelineViewController: UIViewController, UITextFieldDelegate,UIGestureRec
                         self.tweets.append(tweet)
                     }
                 }
+            self.busyflag = false
             }
             }, error: {
                 error in

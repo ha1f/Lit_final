@@ -21,6 +21,11 @@
 		A40BA3BC1AB20E6100C092EA /* 次はオマエだ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */; };
 		A40BA3BD1AB20E6100C092EA /* 起きた.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B11AB20E6100C092EA /* 起きた.JPG */; };
 		A40BA3BE1AB20E6100C092EA /* 進捗.png in Resources */ = {isa = PBXBuildFile; fileRef = A40BA3B21AB20E6100C092EA /* 進捗.png */; };
+		A433F4531AB2B34800133014 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = A433F4521AB2B34800133014 /* black.png */; };
+		A433F4601AB2C8BA00133014 /* いいんじゃない.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45C1AB2C8BA00133014 /* いいんじゃない.jpg */; };
+		A433F4611AB2C8BA00133014 /* この話はこれで終わり.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45D1AB2C8BA00133014 /* この話はこれで終わり.jpg */; };
+		A433F4621AB2C8BA00133014 /* みなかったことに.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45E1AB2C8BA00133014 /* みなかったことに.jpg */; };
+		A433F4631AB2C8BA00133014 /* もう喋るな.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F45F1AB2C8BA00133014 /* もう喋るな.jpg */; };
 		A4D98DEF1AAC0B19004B2272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */; };
 		A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF21AAC0B19004B2272 /* Main.storyboard */; };
 		A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D98DF51AAC0B19004B2272 /* Images.xcassets */; };
@@ -62,6 +67,11 @@
 		A40BA3B01AB20E6100C092EA /* 次はオマエだ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "次はオマエだ.jpg"; sourceTree = "<group>"; };
 		A40BA3B11AB20E6100C092EA /* 起きた.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "起きた.JPG"; sourceTree = "<group>"; };
 		A40BA3B21AB20E6100C092EA /* 進捗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "進捗.png"; sourceTree = "<group>"; };
+		A433F4521AB2B34800133014 /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
+		A433F45C1AB2C8BA00133014 /* いいんじゃない.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "いいんじゃない.jpg"; sourceTree = "<group>"; };
+		A433F45D1AB2C8BA00133014 /* この話はこれで終わり.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "この話はこれで終わり.jpg"; sourceTree = "<group>"; };
+		A433F45E1AB2C8BA00133014 /* みなかったことに.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "みなかったことに.jpg"; sourceTree = "<group>"; };
+		A433F45F1AB2C8BA00133014 /* もう喋るな.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "もう喋るな.jpg"; sourceTree = "<group>"; };
 		A4D98DE91AAC0B19004B2272 /* Litfinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Litfinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D98DED1AAC0B19004B2272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D98DEE1AAC0B19004B2272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +115,11 @@
 		A40BA3A61AB20E6100C092EA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				A433F45C1AB2C8BA00133014 /* いいんじゃない.jpg */,
+				A433F45D1AB2C8BA00133014 /* この話はこれで終わり.jpg */,
+				A433F45E1AB2C8BA00133014 /* みなかったことに.jpg */,
+				A433F45F1AB2C8BA00133014 /* もう喋るな.jpg */,
+				A433F4521AB2B34800133014 /* black.png */,
 				A40BA3A71AB20E6100C092EA /* くじけない.jpg */,
 				A40BA3A81AB20E6100C092EA /* とてもつらい.jpg */,
 				A40BA3A91AB20E6100C092EA /* むりです.PNG */,
@@ -269,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A433F4531AB2B34800133014 /* black.png in Resources */,
 				A40BA3B81AB20E6100C092EA /* ラーメン.jpg in Resources */,
 				A40BA3B51AB20E6100C092EA /* むりです.PNG in Resources */,
 				A40BA3BE1AB20E6100C092EA /* 進捗.png in Resources */,
@@ -279,12 +295,16 @@
 				A40BA3BD1AB20E6100C092EA /* 起きた.JPG in Resources */,
 				A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */,
 				A40BA3B41AB20E6100C092EA /* とてもつらい.jpg in Resources */,
+				A433F4621AB2C8BA00133014 /* みなかったことに.jpg in Resources */,
 				A40BA3BC1AB20E6100C092EA /* 次はオマエだ.jpg in Resources */,
 				A40BA3BB1AB20E6100C092EA /* 受験番号ない.jpg in Resources */,
 				A4D98DF91AAC0B19004B2272 /* LaunchScreen.xib in Resources */,
 				A4D98DF61AAC0B19004B2272 /* Images.xcassets in Resources */,
 				A40BA3B91AB20E6100C092EA /* 一人で寝るのさみしい.jpg in Resources */,
 				A40BA3B31AB20E6100C092EA /* くじけない.jpg in Resources */,
+				A433F4631AB2C8BA00133014 /* もう喋るな.jpg in Resources */,
+				A433F4611AB2C8BA00133014 /* この話はこれで終わり.jpg in Resources */,
+				A433F4601AB2C8BA00133014 /* いいんじゃない.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

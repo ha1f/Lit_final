@@ -9,75 +9,57 @@
 import UIKit
 import TwitterKit
 
+class CustomCell: UICollectionViewCell {
+    @IBOutlet var image:UIImageView!
+    
+    override init(frame: CGRect){
+        super.init(frame: frame)
+    }
+    required init(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+    }
+    
+}
+
 class SendViewController: UIViewController, UITextFieldDelegate {
     
-    let sendButton: UIButton! = UIButton()
-    let backButton: UIButton! = UIButton()
-    let myTextField: UITextField! = UITextField()
+    var images : [String] = ["black.png", "くじけない.jpg", "とてもつらい.jpg", "むりです.PNG", "ん！？.jpg", "クソムシゴミクズこんにちは.jpg", "起きた.JPG", "次はオマエだ.jpg", "ラーメン.jpg", "進捗.png", "受験番号ない.jpg", "僕は悪くない.JPG", "一人で寝るのさみしい.jpg", "いいんじゃない.jpg", "この話はこれで終わり.jpg", "みなかったことに.jpg", "もう喋るな.jpg"]
     
+    let sendButton: UIButton! = UIButton()
+    
+    @IBOutlet weak var myTextField: UITextField!
+    @IBOutlet weak var PhotoCollection: UICollectionView!
+
     var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        println("sendview")
         
-        
-        //送信ボタン
-        sendButton.frame = CGRectMake(0,0,100,50)
-        //sendButton.backgroundColor = UIColor.orangeColor()
-        sendButton.layer.masksToBounds = true
-        sendButton.setTitle("送信", forState: UIControlState.Normal)
-        sendButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-        sendButton.setTitle("了", forState: UIControlState.Highlighted)
-        sendButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Highlighted)
-        sendButton.layer.cornerRadius = 25.0
-        sendButton.layer.position = CGPoint(x: self.view.frame.width*3/4, y:self.view.frame.height/2 + 50)
-        sendButton.tag = 1
-        sendButton.addTarget(self, action: "onClickSendButton:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(sendButton)
-        
-        //戻るボタン
-        backButton.frame = CGRectMake(0,0,50,50)
-        //backButton.backgroundColor = UIColor.redColor()
-        backButton.layer.masksToBounds = true
-        backButton.setTitle("←", forState: UIControlState.Normal)
-        backButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-        backButton.setTitle("←", forState: UIControlState.Highlighted)
-        backButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Highlighted)
-        backButton.layer.cornerRadius = 25.0
-        backButton.layer.position = CGPoint(x: 30, y: 50)
-        backButton.tag = 2
-        backButton.addTarget(self, action: "onClickBackButton:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(backButton)
+        PhotoCollection.delegate = self
+        PhotoCollection.dataSource = self
         
         //入力欄
-        myTextField.frame = CGRectMake(25, 75, self.view.frame.width-50, self.view.frame.height/4)
-        myTextField.backgroundColor = UIColor.grayColor()
-        /*myTextField.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height-25)*/
-        //myTextField.borderStyle = UITextBorderStyle.RoundedRect
-        //myTextField.leftViewMode = UITextFieldViewMode.Always
         myTextField.returnKeyType = UIReturnKeyType.Done
-        myTextField.text = "@" + (self.app.replyuser ?? "") + " "
+        if let tmpString = self.app.replyuser {
+            myTextField.text = "@" + tmpString + " "
+        }
         myTextField.delegate = self
         self.view.addSubview(myTextField)
         
     }
     func textFieldShouldReturn(textField: UITextField!) -> Bool{
         println( textField.text )
-        textField.resignFirstResponder()
+        if textField.isFirstResponder() {
+            textField.resignFirstResponder()
+        }
         return true
     }
-    
-    func onClickSendButton(sender: UIButton){
-        println("send!")
-        sendtweet(myTextField.text,replyid: (self.app.replyid ?? ""))
-        myTextField.text = ""
-        onClickBackButton(UIButton())
-        
-    }
-    
-    func onClickBackButton(sender: UIButton){
+
+    @IBAction func onClickBackButton(sender: AnyObject) {
         println("back!")
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -91,6 +73,59 @@ class SendViewController: UIViewController, UITextFieldDelegate {
                 println(error.localizedDescription)
         })
 
+    }
+}
+
+extension SendViewController: UICollectionViewDataSource,UICollectionViewDelegate{
+    
+    // MARK: - UICollectionViewDelegate Protocol
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("photocell", forIndexPath: indexPath) as CustomCell
+        //cell.title.text = "タイトル";
+        cell.image.image = UIImage(named: images[indexPath.row])
+        
+        cell.backgroundColor = UIColor.blackColor()
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!)
+    {
+        //var cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("photocell", forIndexPath: indexPath) as CustomCell
+        println("select: \(indexPath.row)")
+        var mediaid : String!
+        
+        if indexPath.row != 0 {
+            TwitterAPI.postTweetWithMedia(myTextField.text,in_reply_to_status_id: (self.app.replyid ?? ""),image: UIImage(named: images[indexPath.row]),error: {
+                error in
+                println(error.localizedDescription)
+            })
+        }else{
+            sendtweet(myTextField.text,replyid: (self.app.replyid ?? ""))
+        }
+        println(mediaid ?? "nil")
+
+        self.myTextField.text = ""
+        if self.myTextField.isFirstResponder() {
+            self.myTextField.resignFirstResponder()
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView!, didDeselectItemAtIndexPath indexPath: NSIndexPath!)
+    {
+        //var cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("photocell", forIndexPath: indexPath) as CustomCell
+
+        println("deselect: \(indexPath.row)")
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count;
     }
 }
 

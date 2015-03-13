@@ -24,6 +24,63 @@ class TwitterAPI {
         
         return Twitter.sharedInstance().APIClient.URLRequestWithMethod(type, URL: endpoint, parameters: param, error: &clientError)
     }
+    
+    class func postTweetWithMedia(tweetText: String, in_reply_to_status_id: String!, image: UIImage!,error: (NSError) -> ()) {
+        let api = TwitterAPI()
+        var clientError: NSError?
+        
+        let imageData = UIImagePNGRepresentation(image)
+        let media = imageData.base64EncodedStringWithOptions(nil)
+        
+        var mediaid: String!
+        
+        let param = ["media" : media]
+        
+        let apiPath = "https://upload.twitter.com" + api.version + "/media/upload.json"
+        
+        let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("POST", URL: apiPath, parameters: param, error: nil)
+        
+        if request != nil {
+            Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
+                response, data, err in
+                if err == nil {
+                    println("post succeeded")
+                    var jsonError: NSError?
+                    let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,options: nil,error: &jsonError)
+                    if let jsonArray = json as? NSDictionary {
+                        if let statuses = jsonArray["media_id_string"] as String?{
+                            mediaid = statuses
+                            println(mediaid)
+                            
+                            var param = Dictionary<String, String>()
+                            param["status"] = tweetText
+                            if in_reply_to_status_id != ""{
+                                param["in_reply_to_status_id"] = in_reply_to_status_id
+                            }
+                            if let tmp = mediaid {
+                                param["media_ids"] = mediaid
+                            }
+                            
+                            let request2 = self.callAPI("/statuses/update.json",param:  param, type: "POST")
+                            
+                            if request2 != nil {
+                                Twitter.sharedInstance().APIClient.sendTwitterRequest(request2, completion: {
+                                    response, data, err in
+                                    if err == nil {
+                                        println("post succeeded")
+                                    } else {
+                                        error(err)
+                                    }
+                                })
+                            }
+                        }
+                    }
+                } else {
+                    error(err)
+                }
+            })
+        }
+    }
 
     class func postTweet(tweetText: String, in_reply_to_status_id: String, error: (NSError) -> ()) {
         var param = Dictionary<String, String>()
@@ -113,7 +170,6 @@ class TwitterAPI {
     class func getMyFavorites(tweets: [TWTRTweet]->(),error: (NSError) -> ()){
         var param = Dictionary<String, String>()
         param = ["count":"20"]
-        
         
         let request = callAPI("/favorites/list.json",param: param, type: "GET")
         
