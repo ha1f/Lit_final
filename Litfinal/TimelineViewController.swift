@@ -29,13 +29,15 @@ retweetID
 
 class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
     var tableView: UITableView! = UITableView()
-    var tweets: [TWTRTweet] = [] {
+    var tweets: [TWTRTweet] = [] /*{
         didSet {
-            tableView.reloadData()
-            println("update\(count)")
-            count = count + 1
+            if busyflag == false {
+                tableView.reloadData()
+                println("update\(count)")
+                count = count + 1
+            }
         }
-    }
+    }*/
     var busyflag: Bool = false{
         didSet{
             if busyflag == true{
@@ -62,7 +64,7 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
     var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
     
     @IBOutlet weak var navtitle: UINavigationItem!
-    
+
     var refreshControl:UIRefreshControl!
     
     
@@ -107,7 +109,6 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         myButton.tag = 1
         myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(myButton)
-        
         
         indicatorView.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height/2)
         self.view.addSubview(indicatorView)
@@ -169,16 +170,21 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         self.busyflag = true
         TwitterAPI.getHomeTimeline({
             twttrs in
-            for tweet in reverse(twttrs) {
+            var tmplist :[TWTRTweet]
+            if maxid == nil {tmplist = reverse(twttrs)}else{tmplist = twttrs}
+            for tweet in tmplist {
                 if self.tweets.count == 0{//最初だけ
                     self.tweets.append(tweet)
                 }else{
                     if self.tweets[0].tweetID < tweet.tweetID {//前に追加
                         self.tweets.insert(tweet, atIndex: 0)
-                    }else if self.tweets.last?.tweetID > tweet.tweetID {//後ろに追加
+                    }else if (self.tweets.last?.tweetID!.toInt() > tweet.tweetID.toInt()){//後ろに追加
                         self.tweets.append(tweet)
+                    }else{
+                        println(tweet.text)
                     }
                 }
+            self.tableView.reloadData()
             self.busyflag = false
             }
             },maxid: maxid, error: {
@@ -197,7 +203,7 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
                 }else{
                     if self.tweets[0].tweetID < tweet.tweetID {
                         self.tweets.insert(tweet, atIndex: 0)
-                    }else if self.tweets.last?.tweetID > tweet.tweetID{
+                    }else if self.tweets.last?.tweetID! > tweet.tweetID{
                         self.tweets.append(tweet)
                     }
                 }
@@ -211,12 +217,20 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
     func tweetView(tweetView: TWTRTweetView!, didTapURL url: NSURL!) {
         println("URL tapped")
         
+        println("viewweb")
+        
+        app.weburl = url
+        
+        self.performSegueWithIdentifier("viewweb",sender: nil)
+        
+        
+        
         // *or* Use a system webview
-        let webViewController = UIViewController()
+        /*let webViewController = UIViewController()
         let webView = UIWebView(frame: webViewController.view.bounds)
         webView.loadRequest(NSURLRequest(URL: url))
         webViewController.view = webView
-        self.navigationController!.pushViewController(webViewController, animated: true)
+        self.navigationController!.pushViewController(webViewController, animated: true)*/
     }
 }
 
@@ -259,7 +273,8 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate{
             cell.configureWithTweet(tweet)
             cell.delegate = self
             if (tweets.count - 1) == indexPath.row && tweets.count > 15 {//一番下
-                self.loadTweets(self.tweets.last?.tweetID)
+                self.loadTweets(self.tweets.last?.tweetID!)
+                println(self.tweets.last?.tweetID!)
             }
         }
         cell.tweetView.theme = TWTRTweetViewTheme.Dark

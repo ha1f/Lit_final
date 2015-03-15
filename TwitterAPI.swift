@@ -40,6 +40,8 @@ class TwitterAPI {
         
         let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("POST", URL: apiPath, parameters: param, error: nil)
         
+        print("PostWithMedia")
+        
         if request != nil {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
                 response, data, err in
@@ -50,29 +52,13 @@ class TwitterAPI {
                     if let jsonArray = json as? NSDictionary {
                         if let statuses = jsonArray["media_id_string"] as String?{
                             mediaid = statuses
+                            
                             println(mediaid)
                             
-                            var param = Dictionary<String, String>()
-                            param["status"] = tweetText
-                            if in_reply_to_status_id != ""{
-                                param["in_reply_to_status_id"] = in_reply_to_status_id
-                            }
-                            if let tmp = mediaid {
-                                param["media_ids"] = mediaid
-                            }
-                            
-                            let request2 = self.callAPI("/statuses/update.json",param:  param, type: "POST")
-                            
-                            if request2 != nil {
-                                Twitter.sharedInstance().APIClient.sendTwitterRequest(request2, completion: {
-                                    response, data, err in
-                                    if err == nil {
-                                        println("post succeeded")
-                                    } else {
-                                        error(err)
-                                    }
-                                })
-                            }
+                            self.postTweet(tweetText,in_reply_to_status_id: in_reply_to_status_id, mediaids: mediaid, error: {
+                                error in
+                                println(error.localizedDescription)
+                            })
                         }
                     }
                 } else {
@@ -82,11 +68,15 @@ class TwitterAPI {
         }
     }
 
-    class func postTweet(tweetText: String, in_reply_to_status_id: String, error: (NSError) -> ()) {
+    class func postTweet(tweetText: String, in_reply_to_status_id: String!, mediaids: String!, error: (NSError) -> ()) {
         var param = Dictionary<String, String>()
         param["status"] = tweetText
+        
         if in_reply_to_status_id != ""{
             param["in_reply_to_status_id"] = in_reply_to_status_id
+        }
+        if let tmp = mediaids {
+            param["media_ids"] = tmp
         }
         
         let request = callAPI("/statuses/update.json",param:  param, type: "POST")
@@ -135,11 +125,12 @@ class TwitterAPI {
     
     class func getHomeTimeline(tweets: [TWTRTweet]->(),maxid: String!, error: (NSError) -> ()) {
         var param = Dictionary<String, String>()
-        if let tmp = maxid{
-            param = ["max_id": tmp]
-            param = ["count": "15"]
+        println("maxid=" + (maxid ?? "nil"))
+        if maxid != nil {
+            param = ["max_id": maxid]
+            param["count"] = "20"
         }
-        println("load_TL")
+        println("load_HomeTL: \(param)")
         
         let request = callAPI("/statuses/home_timeline.json",param: param, type: "GET")
         

@@ -11,9 +11,18 @@ import UIKit
 
 class WebPageViewController: UIViewController {
     
+    
+    @IBOutlet weak var webview: UIWebView!
+    
+    var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        println("viewwebloaded")
+        
+        let req = NSURLRequest(URL: app.weburl)
+        webview.loadRequest(req)
         
     }
     

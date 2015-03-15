@@ -13,13 +13,11 @@ import TwitterKit
 class LoginViewController: UIViewController {
     
     var myButton : UIButton! = UIButton()
-    
-    @IBOutlet weak var haikei: UIImageView!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        //self.view.backgroundColor = UIColor.whiteColor()
         
         
         var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
@@ -52,8 +50,6 @@ class LoginViewController: UIViewController {
         myButton.tag = 1
         myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(myButton)
-        
-        haikei.image = UIImage(named: "IMG_2087.JPG")
     }
     
     func onClickMyButton(sender: AnyObject){

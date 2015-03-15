@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A40BA3A31AB1ECCE00C092EA /* OriginalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */; };
 		A40BA3A51AB1FDC900C092EA /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */; };
+		A40EDB0F1AB3DE9D00266783 /* mac.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40EDB0E1AB3DE9D00266783 /* mac.jpg */; };
 		A433F4BE1AB2DD3500133014 /* 00_56_cj8zf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A01AB2DD3500133014 /* 00_56_cj8zf.jpg */; };
 		A433F4BF1AB2DD3500133014 /* 3e28691a-s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A11AB2DD3500133014 /* 3e28691a-s.jpg */; };
 		A433F4C01AB2DD3500133014 /* 15d91a88.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A21AB2DD3500133014 /* 15d91a88.jpg */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginalCell.swift; sourceTree = "<group>"; };
 		A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
+		A40EDB0E1AB3DE9D00266783 /* mac.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mac.jpg; sourceTree = "<group>"; };
 		A433F4A01AB2DD3500133014 /* 00_56_cj8zf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 00_56_cj8zf.jpg; sourceTree = "<group>"; };
 		A433F4A11AB2DD3500133014 /* 3e28691a-s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3e28691a-s.jpg"; sourceTree = "<group>"; };
 		A433F4A21AB2DD3500133014 /* 15d91a88.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15d91a88.jpg; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		A40BA3A61AB20E6100C092EA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				A40EDB0E1AB3DE9D00266783 /* mac.jpg */,
 				A447A7B21AB309560015B169 /* camera.png */,
 				A447A7AE1AB2FD830015B169 /* じゃがいも.jpg */,
 				A433F4DC1AB2E02900133014 /* IMG_2087.JPG */,
@@ -351,6 +354,7 @@
 				A433F4D31AB2DD3500133014 /* ラーメン.jpg in Resources */,
 				A433F4CD1AB2DD3500133014 /* クソムシゴミクズこんにちは.jpg in Resources */,
 				A433F4D61AB2DD3500133014 /* 起きた.JPG in Resources */,
+				A40EDB0F1AB3DE9D00266783 /* mac.jpg in Resources */,
 				A433F4C61AB2DD3500133014 /* qaZxXLnH.jpeg in Resources */,
 				A433F4D21AB2DD3500133014 /* もう喋るな.jpg in Resources */,
 				A4D98DF41AAC0B19004B2272 /* Main.storyboard in Resources */,
