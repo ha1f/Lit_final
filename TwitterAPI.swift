@@ -10,52 +10,35 @@ import Foundation
 import TwitterKit
 
 class TwitterAPI {
-    let baseURL = "https://api.twitter.com"
-    let version = "/1.1"
+    static let baseURL = "https://api.twitter.com"
+    static let version = "/1.1"
     
-    init() {
-        
-    }
-    
-    class func callAPI(path: String, param: Dictionary<String, String>?, type: String) -> NSURLRequest!{
-        let api = TwitterAPI()
+    static func callAPI(path: String, param: Dictionary<String, String>?, type: String) -> NSURLRequest!{
         var clientError: NSError?
-        let endpoint = api.baseURL + api.version + path
+        let endpoint = self.baseURL + self.version + path
         
         return Twitter.sharedInstance().APIClient.URLRequestWithMethod(type, URL: endpoint, parameters: param, error: &clientError)
     }
     
     class func postTweetWithMedia(tweetText: String, in_reply_to_status_id: String!, image: UIImage!,error: (NSError) -> ()) {
-        let api = TwitterAPI()
         var clientError: NSError?
         
-        let imageData = UIImagePNGRepresentation(image)
-        let media = imageData.base64EncodedStringWithOptions(nil)
-        
-        var mediaid: String!
+        let media = UIImagePNGRepresentation(image).base64EncodedStringWithOptions(nil)
         
         let param = ["media" : media]
         
-        let apiPath = "https://upload.twitter.com" + api.version + "/media/upload.json"
+        let apiPath = "https://upload.twitter.com" + self.version + "/media/upload.json"
         
         let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("POST", URL: apiPath, parameters: param, error: nil)
         
-        print("PostWithMedia")
-        
         if request != nil {
-            Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
-                response, data, err in
+            Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {response, data, err in
                 if err == nil {
-                    println("post succeeded")
                     var jsonError: NSError?
                     let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,options: nil,error: &jsonError)
                     if let jsonArray = json as? NSDictionary {
-                        if let statuses = jsonArray["media_id_string"] as String?{
-                            mediaid = statuses
-                            
-                            println(mediaid)
-                            
-                            self.postTweet(tweetText,in_reply_to_status_id: in_reply_to_status_id, mediaids: mediaid, error: {
+                        if let statuses = jsonArray["media_id_string"] as! String?{
+                            self.postTweet(tweetText,in_reply_to_status_id: in_reply_to_status_id, mediaids: statuses, error: {
                                 error in
                                 println(error.localizedDescription)
                             })
@@ -104,15 +87,14 @@ class TwitterAPI {
             Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
                 response, data, err in
                 if err == nil {
-                    println("succeeded")
                     var jsonError: NSError?
                     let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,
                         options: nil,
                         error: &jsonError)
-                    if let jsonArray = json as? NSDictionary {
+                    if let jsonArray = (json as? NSDictionary){
                         var list: [TWTRTweet] = []
                         if let statuses = jsonArray["statuses"] as? NSArray {
-                            tweets(TWTRTweet.tweetsWithJSONArray(statuses) as [TWTRTweet])
+                            tweets(TWTRTweet.tweetsWithJSONArray(statuses as [AnyObject]) as! [TWTRTweet])
                         }
                     }
                 } else {
@@ -123,27 +105,24 @@ class TwitterAPI {
         }
     }
     
-    class func getHomeTimeline(tweets: [TWTRTweet]->(),maxid: String!, error: (NSError) -> ()) {
+    class func getHomeTimeline(tweets: [TWTRTweet]->(), maxid: String!, error: (NSError) -> ()) {
         var param = Dictionary<String, String>()
-        println("maxid=" + (maxid ?? "nil"))
-        if maxid != nil {
-            param = ["max_id": maxid]
-            param["count"] = "20"
+        if let tmpid = maxid {
+            param["max_id"] = tmpid
         }
-        println("load_HomeTL: \(param)")
+        param["count"] = "20"
         
         let request = callAPI("/statuses/home_timeline.json",param: param, type: "GET")
         
         if request != nil {
-            Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {
-                response, data, err in
+            Twitter.sharedInstance().APIClient.sendTwitterRequest(request, completion: {response, data, err in
                 if err == nil {
                     var jsonError: NSError?
                     let json: AnyObject? =  NSJSONSerialization.JSONObjectWithData(data,
                         options: nil,
                         error: &jsonError)
                     if let jsonArray = json as? NSArray {
-                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray) as [TWTRTweet])
+                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray as [AnyObject]) as! [TWTRTweet])
                     }
                 } else {
                     error(err)
@@ -153,10 +132,7 @@ class TwitterAPI {
     }
     
     class func gettweetwithid(tweets: [TWTRTweet]->(), tweetIDs: NSArray,error: (NSError) -> ()) {
-        Twitter.sharedInstance().APIClient
-            .loadTweetsWithIDs(tweetIDs) {
-                (tweetsa, error) -> Void in
-                // handle the response or error
+        Twitter.sharedInstance().APIClient.loadTweetsWithIDs(tweetIDs as [AnyObject]) {(tweetsa, error) -> Void in
                 if let ts = tweetsa as? [TWTRTweet] {
                     tweets(ts)
                 } else {
@@ -180,7 +156,7 @@ class TwitterAPI {
                         options: nil,
                         error: &jsonError)
                     if let jsonArray = json as? NSArray {
-                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray) as [TWTRTweet])
+                        tweets(TWTRTweet.tweetsWithJSONArray(jsonArray as [AnyObject]) as! [TWTRTweet])
                     }
                 } else {
                     error(err)

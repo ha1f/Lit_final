@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A40BA3A31AB1ECCE00C092EA /* OriginalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */; };
 		A40BA3A51AB1FDC900C092EA /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */; };
+		A40E8A651ADFEDA600F9D047 /* TweetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40E8A641ADFEDA600F9D047 /* TweetDataModel.swift */; };
 		A40EDB0F1AB3DE9D00266783 /* mac.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40EDB0E1AB3DE9D00266783 /* mac.jpg */; };
 		A433F4BE1AB2DD3500133014 /* 00_56_cj8zf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A01AB2DD3500133014 /* 00_56_cj8zf.jpg */; };
 		A433F4BF1AB2DD3500133014 /* 3e28691a-s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A433F4A11AB2DD3500133014 /* 3e28691a-s.jpg */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginalCell.swift; sourceTree = "<group>"; };
 		A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
+		A40E8A641ADFEDA600F9D047 /* TweetDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDataModel.swift; sourceTree = "<group>"; };
 		A40EDB0E1AB3DE9D00266783 /* mac.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mac.jpg; sourceTree = "<group>"; };
 		A433F4A01AB2DD3500133014 /* 00_56_cj8zf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 00_56_cj8zf.jpg; sourceTree = "<group>"; };
 		A433F4A11AB2DD3500133014 /* 3e28691a-s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3e28691a-s.jpg"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		A4D98DEB1AAC0B19004B2272 /* Litfinal */ = {
 			isa = PBXGroup;
 			children = (
+				A40E8A641ADFEDA600F9D047 /* TweetDataModel.swift */,
 				A40BA3A61AB20E6100C092EA /* Media */,
 				A40BA3A41AB1FDC900C092EA /* WebPageViewController.swift */,
 				A40BA3A21AB1ECCE00C092EA /* OriginalCell.swift */,
@@ -413,6 +416,7 @@
 				A4F08F961AB060E7002FBE98 /* GameScene.swift in Sources */,
 				A4F3491B1AAC292300AE68C5 /* TimelineViewController.swift in Sources */,
 				A4D98E161AAC0D41004B2272 /* LoginViewController.swift in Sources */,
+				A40E8A651ADFEDA600F9D047 /* TweetDataModel.swift in Sources */,
 				A4F3491D1AAC2A8400AE68C5 /* SendViewController.swift in Sources */,
 				A4D98DEF1AAC0B19004B2272 /* AppDelegate.swift in Sources */,
 			);
@@ -544,6 +548,7 @@
 					"$(PROJECT_DIR)/Litfinal",
 				);
 				INFOPLIST_FILE = Litfinal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -558,6 +563,7 @@
 					"$(PROJECT_DIR)/Litfinal",
 				);
 				INFOPLIST_FILE = Litfinal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

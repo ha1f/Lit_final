@@ -30,7 +30,7 @@ class SendViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var myTextField: UITextField!
     @IBOutlet weak var PhotoCollection: UICollectionView!
 
-    var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    var app:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate?)! //AppDelegateのインスタンスを取得
     
     
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ class SendViewController: UIViewController, UITextFieldDelegate {
         
     }
     //改行の時確定する
-    func textFieldShouldReturn(textField: UITextField!) -> Bool{
+    func textFieldShouldReturn(textField: UITextField!) -> Bool!{
         println( textField.text )
         if textField.isFirstResponder() {
             textField.resignFirstResponder()
@@ -84,7 +84,7 @@ extension SendViewController: UICollectionViewDataSource,UICollectionViewDelegat
     
     // MARK: - UICollectionViewDelegate Protocol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("photocell", forIndexPath: indexPath) as CustomCell
+        let cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("photocell", forIndexPath: indexPath) as! CustomCell
         //cell.title.text = "タイトル";
         cell.image.image = UIImage(named: images[indexPath.row])
         
@@ -92,9 +92,9 @@ extension SendViewController: UICollectionViewDataSource,UICollectionViewDelegat
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!)
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
-        //var cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("photocell", forIndexPath: indexPath) as CustomCell
+
         println("select: \(indexPath.row)")
         var mediaid : String!
         
@@ -115,7 +115,7 @@ extension SendViewController: UICollectionViewDataSource,UICollectionViewDelegat
         self.navigationController?.popViewControllerAnimated(true);
     }
     
-    func collectionView(collectionView: UICollectionView!, didDeselectItemAtIndexPath indexPath: NSIndexPath!)
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
     {
         //var cell:CustomCell = collectionView.dequeueReusableCellWithReuseIdentifier("photocell", forIndexPath: indexPath) as CustomCell
 

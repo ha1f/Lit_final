@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         //self.view.backgroundColor = UIColor.whiteColor()
         
         
-        var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+        var app:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         // Do any additional setup after loading the view, typically from a nib.
         let logInButton = TWTRLogInButton(logInCompletion: {
             (session: TWTRSession!, error: NSError!) in

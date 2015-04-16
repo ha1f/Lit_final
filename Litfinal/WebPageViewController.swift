@@ -14,7 +14,7 @@ class WebPageViewController: UIViewController {
     
     @IBOutlet weak var webview: UIWebView!
     
-    var app:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate //AppDelegateのインスタンスを取得
+    var app:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     override func viewDidLoad() {
         super.viewDidLoad()
