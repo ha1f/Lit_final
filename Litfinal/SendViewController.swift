@@ -29,9 +29,8 @@ class SendViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var myTextField: UITextField!
     @IBOutlet weak var PhotoCollection: UICollectionView!
-
-    var app:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate?)! //AppDelegateのインスタンスを取得
     
+    var replyUser:[String!] = [nil,nil]//segueから受け取る
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,21 +42,23 @@ class SendViewController: UIViewController, UITextFieldDelegate {
         
         //入力欄
         myTextField.returnKeyType = UIReturnKeyType.Done
-        if let tmpString = self.app.replyuser {
+        if let tmpString = self.replyUser[1] {
             myTextField.text = "@" + tmpString + " "
         }
         myTextField.delegate = self
         self.view.addSubview(myTextField)
         
     }
-    //改行の時確定する
-    func textFieldShouldReturn(textField: UITextField!) -> Bool!{
-        println( textField.text )
+    
+    //完了を押したらキーボードを閉じる
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        println("return")
         if textField.isFirstResponder() {
             textField.resignFirstResponder()
         }
         return true
     }
+
     override func viewDidLayoutSubviews() {
         PhotoCollection.frame = CGRectMake(15, 130, self.view.frame.width-30, self.view.frame.height-160)
     }
@@ -67,7 +68,7 @@ class SendViewController: UIViewController, UITextFieldDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func sendtweet(tweetText: String, replyid: String){
+    func sendtweet(tweetText: String!, replyid: String!){
         TwitterAPI.postTweet(
             tweetText,
             in_reply_to_status_id: replyid,
@@ -99,12 +100,12 @@ extension SendViewController: UICollectionViewDataSource,UICollectionViewDelegat
         var mediaid : String!
         
         if indexPath.row != 0 {
-            TwitterAPI.postTweetWithMedia(myTextField.text,in_reply_to_status_id: (self.app.replyid ?? ""),image: UIImage(named: images[indexPath.row]),error: {
+            TwitterAPI.postTweetWithMedia(myTextField.text,in_reply_to_status_id: replyUser[0],image: UIImage(named: images[indexPath.row]),error: {
                 error in
                 println(error.localizedDescription)
             })
         }else{
-            sendtweet(myTextField.text,replyid: (self.app.replyid ?? ""))
+            sendtweet(myTextField.text,replyid: replyUser[0])
         }
 
         self.myTextField.text = ""

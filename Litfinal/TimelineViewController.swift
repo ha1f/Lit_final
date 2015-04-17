@@ -41,12 +41,12 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         }
     }
     
-    //var prototypeCell: TWTRTweetTableViewCell?
     var prototypeCell: OriginalTweetTableViewCell?
     
     var count:Int = 0
     
     var indicatorView:UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    var footerIndicatorView:UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
     
     var app:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
@@ -54,7 +54,7 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
 
     var refreshControl:UIRefreshControl!
     
-    var tweetData = TweetDataModel()
+    var HomeTimeline = TweetDataModel()
     
     
     override func viewWillAppear(animated: Bool) {
@@ -69,11 +69,15 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         self.view.backgroundColor = UIColor.blackColor()
         
         //tableViewの作成、delegate,dataSourceを設定
-        tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height)
-        tableView.backgroundColor = UIColor.darkGrayColor()
-        tableView.allowsSelection = true
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height)
+        self.tableView.backgroundColor = UIColor.darkGrayColor()
+        self.tableView.allowsSelection = true
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.alwaysBounceVertical = true;
+        //tableviewのフッター
+        footerIndicatorView.startAnimating()
+        self.tableView.tableFooterView = footerIndicatorView
         
         prototypeCell = OriginalTweetTableViewCell(style: .Default, reuseIdentifier: "cell")
         prototypeCell?.delegate = self
@@ -87,15 +91,16 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         
         // 引っ張ってロードする
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull-to-Refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
         refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
         
+        //tweetLoadedを受け取ったらupdate(observer)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTableView:", name: "tweetLoaded", object: nil)
         
         count = 0
         
-        tweetData.fetchTimeline(nil)
+        HomeTimeline.fetchTimeline(nil)
         
     }
     
@@ -104,6 +109,7 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         println("updateTableView")
         self.tableView.reloadData()
         self.busyflag=false
+        footerIndicatorView.stopAnimating()
     }
     
     @IBAction func bu_edit(sender: AnyObject){
@@ -112,7 +118,7 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
     
     func bu_refresh(sender: AnyObject) {
         println("refresh")
-        tweetData.fetchTimeline(nil)
+        HomeTimeline.fetchTimeline(nil)
         println("test")
         //loadTweets(nil)
     }
@@ -135,9 +141,7 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         tableView.frame = CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height)
         indicatorView.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height/2)
     }
-    
 
-    
     func tweetView(tweetView: TWTRTweetView!, didTapURL url: NSURL!) {
         println("URL tapped")
         
@@ -145,21 +149,29 @@ class TimelineViewController: UIViewController, TWTRTweetViewDelegate{
         
         self.performSegueWithIdentifier("viewweb",sender: nil)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        println("prepare")
+        var secondViewController:SendViewController = segue.destinationViewController as! SendViewController
+        if sender != nil{
+            secondViewController.replyUser = sender as! [String!]
+        }
+    }
 }
 
 //セルに対するdelegate
 extension TimelineViewController: OriginalTweetTableViewCellDelegate{
     func onRightSwipe(cell: OriginalTweetTableViewCell) {
         let index: Int = cell.tag
-        println("onRightSwipe")
+        println("onRightSwipe: \(index)")
     }
     
     func onLeftSwipe(cell: OriginalTweetTableViewCell) {
         let index: Int = cell.tag
         println("onLeftSwipe: \(index)")
-        app.replyid = tweetData.tweets[index].tweetID
-        app.replyuser = tweetData.tweets[index].author.screenName
-        self.performSegueWithIdentifier("tosend",sender: nil)
+        app.replyid = HomeTimeline.tweets[index].tweetID
+        app.replyuser = HomeTimeline.tweets[index].author.screenName
+        self.performSegueWithIdentifier("tosend",sender: [HomeTimeline.tweets[index].tweetID, HomeTimeline.tweets[index].author.screenName])
     }
 }
 
@@ -167,36 +179,36 @@ extension TimelineViewController: OriginalTweetTableViewCellDelegate{
 extension TimelineViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("Num: \(indexPath.row)")
-        app.replyid = tweetData.tweets[indexPath.row].tweetID
-        app.replyuser = tweetData.tweets[indexPath.row].author.screenName
+        app.replyid = HomeTimeline.tweets[indexPath.row].tweetID
+        app.replyuser = HomeTimeline.tweets[indexPath.row].author.screenName
         self.performSegueWithIdentifier("tosend",sender: nil)
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tweetData.tweets.count
+        return HomeTimeline.tweets.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! OriginalTweetTableViewCell
         
-        if tweetData.tweets.count > indexPath.row {
-            let tweet = tweetData.tweets[indexPath.row]
+        println("\(indexPath.row)")
+        
+        if HomeTimeline.tweets.count > indexPath.row {
+            let tweet = HomeTimeline.tweets[indexPath.row]
             cell.tag = indexPath.row
             cell.configureWithTweet(tweet)
             cell.delegate = self
-            if (tweetData.tweets.count - 1) == indexPath.row{//一番下
-                println("last")
-                tweetData.fetchTimeline(tweetData.tweets.last?.tweetID)
+            if (HomeTimeline.tweets.count - 1) == indexPath.row{//一番下
+                footerIndicatorView.startAnimating()
+                HomeTimeline.fetchTimeline(String((HomeTimeline.tweets.last?.tweetID.toInt())!-1))
             }
         }
-        cell.tweetView.theme = TWTRTweetViewTheme.Dark
-        
         
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let tweet = tweetData.tweets[indexPath.row]
+        let tweet = HomeTimeline.tweets[indexPath.row]
         
         prototypeCell?.configureWithTweet(tweet)
         

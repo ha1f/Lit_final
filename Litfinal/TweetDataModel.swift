@@ -12,18 +12,17 @@ import TwitterKit
 class TweetDataModel :NSObject{
     
     var tweets:[TWTRTweet]
+    var loadingFlag:Bool = false
     
     // initialize
     override init() {
-        //super.init()
         self.tweets = []
     }
     
-    func getData(Void)->[TWTRTweet] {
-        return self.tweets
-    }
-    
     func fetchTimeline(maxid:String?){
+        while(self.loadingFlag){}
+        
+        self.loadingFlag = true
         TwitterAPI.getHomeTimeline({
             twttrs in
             
@@ -37,24 +36,25 @@ class TweetDataModel :NSObject{
                 if twttrs[0].tweetID > self.tweets.last?.tweetID {//新しいツイートがある
                     tmptweets = reverse(twttrs)
                 }else{
-                //if twttrs.last?.tweetID < self.tweets[0].tweetID{//古いツイートがある
+                    //if twttrs.last?.tweetID < self.tweets[0].tweetID{//古いツイートがある
                     tmptweets=twttrs
                 }
             
                 for tweetCell in tmptweets {
-                    if tweetCell.tweetID > self.tweets.last?.tweetID {//新ツイートを上に追加
+                    if tweetCell.tweetID > self.tweets[0].tweetID {//新ツイートを上に追加
                         self.tweets.insert(tweetCell,atIndex: 0)
-                    }else if tweetCell.tweetID < self.tweets[0].tweetID {//古いツイートを下に追加
+                    }else if tweetCell.tweetID < self.tweets.last?.tweetID {//古いツイートを下に追加
                         self.tweets.append(tweetCell)
                     }
                 }
             }
             println("finish")
-            
+            self.loadingFlag = false
             NSNotificationCenter.defaultCenter().postNotificationName("tweetLoaded", object: nil)
             
             },
             maxid: maxid,
-            error: {error in println(error.localizedDescription) })
+            count: "40",
+            error: {error in println(error.localizedDescription)})
     }
 }
